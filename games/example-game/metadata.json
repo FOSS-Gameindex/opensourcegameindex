@@ -14,6 +14,8 @@
     "en": "Strategy",
     "de": "Strategie"
   },
+  "lan_supported": true,
+  "max_players": "8",
   "website_url": "https://example.org/game",
   "community_url": "https://example.org/forum",
   "discord_url": "https://example.org/discord",
@@ -54,4 +56,3 @@
     }
   ]
 }
-

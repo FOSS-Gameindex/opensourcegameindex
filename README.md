@@ -1,20 +1,26 @@
 # Open Source Games Index
 
-Public, reviewable game metadata for LANLauncherNG.
+Public, reviewable metadata for open-source games.
 
-This repository is split into two layers:
+This repository is a public source of broader open-source game catalog that can also be consumed by tools like LANLauncherNG.
 
-- `games/<gameid>/` contains the human-authored source material for one game.
-- GitHub Pages is generated from that source by CI and provides a browsable site.
+What this repository provides:
 
-LANLauncherNG consumes the generated `index.json` and the published game pages for:
+- human-authored game pages under `games/<gameid>/`
+- machine-readable metadata for each game
+- a generated GitHub Pages site for browsing the catalog
+- a root `index.json` for tooling integrations
 
-- metadata
-- artwork and screenshots
-- project website links
-- community board links
-- Discord links
-- download references
+The repo can contain a Index of:
+
+- LAN games
+- online multiplayer games
+- co-op or split-screen games
+- single-player-only games
+
+The `lan_supported` flag is what lets LLNG separate the LAN-relevant subset from the broader catalog.
+
+The generated site visually marks LAN-capable titles with a badge and provides a simple filter for LAN-only browsing.
 
 ## Workflow
 
@@ -36,4 +42,3 @@ games/<gameid>/
 ```
 
 The generated site also exposes a machine-readable `index.json` at the root.
-
