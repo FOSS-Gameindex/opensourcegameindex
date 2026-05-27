@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open source games index",
+  "type": "object",
+  "required": ["schema_version", "generated_at_utc", "games"],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "generated_at_utc": { "type": "string" },
+    "source": {
+      "type": "object",
+      "properties": {
+        "repo_url": { "type": "string" },
+        "branch": { "type": "string" },
+        "commit_sha": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "games": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["game_id", "title"],
+        "properties": {
+          "game_id": { "type": "string" },
+          "title": {},
+          "description": {},
+          "page_url": { "type": "string" },
+          "download_url": { "type": "string" },
+          "website_url": { "type": "string" },
+          "community_url": { "type": "string" },
+          "discord_url": { "type": "string" },
+          "media": { "type": "object" },
+          "links": { "type": "array" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
+

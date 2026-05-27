@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Example Game Cover</title>
+  <desc id="desc">Placeholder cover art for the public index scaffold.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#103d5f"/>
+      <stop offset="100%" stop-color="#0f1b2d"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <circle cx="540" cy="70" r="54" fill="#f5b300" opacity="0.95"/>
+  <text x="48" y="146" fill="#ffffff" font-family="Arial, sans-serif" font-size="44" font-weight="700">
+    Example Game
+  </text>
+  <text x="48" y="198" fill="#cdd7e6" font-family="Arial, sans-serif" font-size="20">
+    Public game index scaffold
+  </text>
+</svg>
+

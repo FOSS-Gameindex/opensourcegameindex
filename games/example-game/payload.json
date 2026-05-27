@@ -1,0 +1,6 @@
+{
+  "syncthing_folder": "example-game",
+  "payload_root": "payload/example-game",
+  "checksum": "sha256:replace-me"
+}
+
