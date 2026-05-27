@@ -2,7 +2,7 @@
 
 Public, reviewable metadata for open-source games.
 
-This repository is a public source of broader open-source game catalog that can also be consumed by tools like LANLauncherNG.
+This repository is a public source for a broader open-source game catalog that can also be consumed by tools like LANLauncherNG.
 
 What this repository provides:
 
@@ -11,7 +11,7 @@ What this repository provides:
 - a generated GitHub Pages site for browsing the catalog
 - a root `index.json` for tooling integrations
 
-The repo can contain a Index of:
+The repo can contain a mix of:
 
 - LAN games
 - online multiplayer games
@@ -20,7 +20,7 @@ The repo can contain a Index of:
 
 The `lan_supported` flag is what lets LLNG separate the LAN-relevant subset from the broader catalog.
 
-The generated site visually marks LAN-capable titles with a badge and provides a simple filter for LAN-only browsing.
+The generated site visually marks LAN-capable titles with a badge and provides filters for LAN-only browsing, player-count ranges, and runtime support.
 
 ## Workflow
 

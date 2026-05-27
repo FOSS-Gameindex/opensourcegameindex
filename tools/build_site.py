@@ -51,6 +51,28 @@ def player_bucket(player_count: int | None) -> str:
     return "9+"
 
 
+def normalize_runtime_support(raw: object) -> list[str]:
+    if isinstance(raw, list):
+        values = [str(item).strip().lower() for item in raw if str(item).strip()]
+    else:
+        values = [part.strip().lower() for part in str(raw or "").split(",")]
+    cleaned: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        if value in {"native", "wine", "proton", "proton-ge", "windows"} and value not in seen:
+            cleaned.append(value)
+            seen.add(value)
+    return cleaned
+
+
+def runtime_bucket(values: list[str]) -> str:
+    if not values:
+        return "unknown"
+    if len(values) > 1:
+        return "mixed"
+    return values[0]
+
+
 def build_index(root: Path) -> dict:
     games = []
     for game_dir in sorted(p for p in (root / "games").iterdir() if p.is_dir()):
@@ -58,6 +80,9 @@ def build_index(root: Path) -> dict:
         links = metadata.get("links", [])
         lan_supported = metadata.get("lan_supported")
         player_count = parse_player_count(metadata.get("max_players"))
+        runtime_support = normalize_runtime_support(
+            metadata.get("runtime_support", metadata.get("supported_runtimes"))
+        )
         games.append(
             {
                 "game_id": metadata.get("game_id", game_dir.name),
@@ -70,6 +95,8 @@ def build_index(root: Path) -> dict:
                 "max_players": metadata.get("max_players", ""),
                 "player_count": player_count,
                 "player_bucket": player_bucket(player_count),
+                "runtime_support": runtime_support,
+                "runtime_bucket": runtime_bucket(runtime_support),
                 "page_url": f"games/{game_dir.name}/index.html",
                 "website_url": metadata.get("website_url", ""),
                 "community_url": metadata.get("community_url", ""),
@@ -163,6 +190,7 @@ def build_site(root: Path, output: Path) -> None:
         lan_supported = entry.get("lan_supported") is True
         max_players = str(entry.get("max_players", "")).strip()
         player_bucket_value = str(entry.get("player_bucket", "unknown"))
+        runtime_bucket_value = str(entry.get("runtime_bucket", "unknown"))
         game_output = output / "games" / game_id
         game_output.mkdir(parents=True, exist_ok=True)
         for filename in ("README.md", "metadata.json", "links.json", "payload.json"):
@@ -221,7 +249,7 @@ def build_site(root: Path, output: Path) -> None:
         (game_output / "index.html").write_text(page, encoding="utf-8")
         games_html.append(
             f"""
-<article class="card" data-lan-supported="{1 if lan_supported else 0}" data-player-bucket="{html.escape(player_bucket_value)}">
+<article class="card" data-lan-supported="{1 if lan_supported else 0}" data-player-bucket="{html.escape(player_bucket_value)}" data-runtime-bucket="{html.escape(runtime_bucket_value)}">
   <h2><a href="games/{html.escape(game_id)}/index.html">{html.escape(title)}</a></h2>
   <p class="muted">{html.escape(description)}</p>
   <div class="badge-row">
@@ -262,6 +290,18 @@ def build_site(root: Path, output: Path) -> None:
       <button class="filter-btn" type="button" data-player-filter="unknown" aria-pressed="false">Unknown</button>
     </div>
   </div>
+  <div class="filter-section">
+    <span class="filter-label">Runtime support</span>
+    <div class="filter-bar" role="toolbar" aria-label="Runtime support filters">
+      <button class="filter-btn" type="button" data-runtime-filter="all" aria-pressed="true">Any runtime</button>
+      <button class="filter-btn" type="button" data-runtime-filter="native" aria-pressed="false">Native</button>
+      <button class="filter-btn" type="button" data-runtime-filter="wine" aria-pressed="false">Wine</button>
+      <button class="filter-btn" type="button" data-runtime-filter="proton" aria-pressed="false">Proton</button>
+      <button class="filter-btn" type="button" data-runtime-filter="proton-ge" aria-pressed="false">Proton-GE</button>
+      <button class="filter-btn" type="button" data-runtime-filter="mixed" aria-pressed="false">Mixed</button>
+      <button class="filter-btn" type="button" data-runtime-filter="unknown" aria-pressed="false">Unknown</button>
+    </div>
+  </div>
   <section class="grid" id="games-grid">
     {''.join(games_html)}
   </section>
@@ -274,6 +314,7 @@ def build_site(root: Path, output: Path) -> None:
     const state = {{
       lan: 'all',
       players: 'all',
+      runtime: 'all',
     }};
 
     function matchesPlayerFilter(card, mode) {{
@@ -286,10 +327,18 @@ def build_site(root: Path, output: Path) -> None:
       return mode === 'all' || (mode === 'lan' && lanSupported) || (mode === 'nonlan' && !lanSupported);
     }}
 
+    function matchesRuntimeFilter(card, mode) {{
+      const bucket = card.dataset.runtimeBucket || 'unknown';
+      return mode === 'all' || bucket === mode;
+    }}
+
     function applyFilters() {{
       let visible = 0;
       for (const card of cards) {{
-        const show = matchesLanFilter(card, state.lan) && matchesPlayerFilter(card, state.players);
+        const show =
+          matchesLanFilter(card, state.lan) &&
+          matchesPlayerFilter(card, state.players) &&
+          matchesRuntimeFilter(card, state.runtime);
         card.classList.toggle('is-hidden', !show);
         if (show) {{
           visible += 1;
@@ -301,7 +350,8 @@ def build_site(root: Path, output: Path) -> None:
       for (const button of buttons) {{
         const active =
           (button.dataset.lanFilter && button.dataset.lanFilter === state.lan) ||
-          (button.dataset.playerFilter && button.dataset.playerFilter === state.players);
+          (button.dataset.playerFilter && button.dataset.playerFilter === state.players) ||
+          (button.dataset.runtimeFilter && button.dataset.runtimeFilter === state.runtime);
         button.setAttribute('aria-pressed', active ? 'true' : 'false');
       }}
     }}
@@ -313,6 +363,9 @@ def build_site(root: Path, output: Path) -> None:
         }}
         if (button.dataset.playerFilter) {{
           state.players = button.dataset.playerFilter || 'all';
+        }}
+        if (button.dataset.runtimeFilter) {{
+          state.runtime = button.dataset.runtimeFilter || 'all';
         }}
         applyFilters();
       }});
