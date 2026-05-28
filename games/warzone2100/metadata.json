@@ -1,0 +1,25 @@
+{
+  "game_id": "warzone2100",
+  "title": "Warzone 2100",
+  "description": "A free and open-source 3D real-time strategy game with LAN and online multiplayer battles.",
+  "publisher": "Warzone 2100 Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "max_players": "10",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://wz2100.net/",
+  "community_url": "https://wz2100.net/support/",
+  "download_url": "https://wz2100.net/",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://wz2100.net/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/Warzone2100/warzone2100"
+    }
+  ]
+}

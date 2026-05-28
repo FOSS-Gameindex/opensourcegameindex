@@ -1,0 +1,29 @@
+{
+  "game_id": "hedgewars",
+  "title": "Hedgewars",
+  "description": "A turn-based artillery strategy game with both local and network multiplayer for LAN play.",
+  "publisher": "Hedgewars Project",
+  "genre": "Turn-based strategy",
+  "lan_supported": true,
+  "max_players": "8",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.hedgewars.org/about.html",
+  "community_url": "https://hedgewars.org/wiki/Network_Game_Guide",
+  "download_url": "https://hedgewars.org/download.html",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.hedgewars.org/about.html"
+    },
+    {
+      "label": "Network guide",
+      "url": "https://hedgewars.org/wiki/Network_Game_Guide"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/hedgewars/hw"
+    }
+  ]
+}

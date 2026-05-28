@@ -1,0 +1,28 @@
+{
+  "game_id": "assaultcube",
+  "title": "AssaultCube",
+  "description": "A lightweight open-source first-person shooter with low-latency multiplayer and LAN-only server modes.",
+  "publisher": "AssaultCube Team",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://assault.cubers.net/",
+  "community_url": "https://assault.cubers.net/docs/",
+  "download_url": "https://github.com/assaultcube/AC/releases",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://assault.cubers.net/"
+    },
+    {
+      "label": "Server docs",
+      "url": "https://assault.cubers.net/docs/server.html"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/assaultcube/AC"
+    }
+  ]
+}

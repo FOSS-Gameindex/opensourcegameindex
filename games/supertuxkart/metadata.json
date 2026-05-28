@@ -1,0 +1,33 @@
+{
+  "game_id": "supertuxkart",
+  "title": "SuperTuxKart",
+  "description": "An open-source kart racer with local network play, split-screen, and online multiplayer.",
+  "publisher": "SuperTuxKart Team",
+  "genre": "Racing",
+  "lan_supported": true,
+  "max_players": "8",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://supertuxkart.net/Discover",
+  "community_url": "https://supertuxkart.net/STK_Evolution_FAQ",
+  "download_url": "https://github.com/supertuxkart/stk-code/releases",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://supertuxkart.net/Discover"
+    },
+    {
+      "label": "FAQ",
+      "url": "https://supertuxkart.net/STK_Evolution_FAQ"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/supertuxkart/stk-code"
+    },
+    {
+      "label": "Addons",
+      "url": "https://github.com/supertuxkart/stk-addons"
+    }
+  ]
+}

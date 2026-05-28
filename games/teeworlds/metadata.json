@@ -1,0 +1,25 @@
+{
+  "game_id": "teeworlds",
+  "title": "Teeworlds",
+  "description": "A free online multiplayer shooter with dedicated-server play that works well for LAN gatherings.",
+  "publisher": "Teeworlds Team",
+  "genre": "Shooter",
+  "lan_supported": true,
+  "max_players": "16",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.teeworlds.com/",
+  "community_url": "https://github.com/teeworlds/teeworlds",
+  "download_url": "https://www.teeworlds.com/",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.teeworlds.com/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/teeworlds/teeworlds"
+    }
+  ]
+}

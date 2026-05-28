@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.openttd.org/about"
+    },
+    {
+      "label": "Download",
+      "url": "https://www.openttd.org/downloads/openttd-releases/latest"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/OpenTTD/OpenTTD"
+    }
+  ]
+}

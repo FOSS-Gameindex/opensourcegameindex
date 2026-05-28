@@ -11,7 +11,12 @@
       "properties": {
         "repo_url": { "type": "string" },
         "branch": { "type": "string" },
-        "commit_sha": { "type": "string" }
+        "commit_sha": { "type": "string" },
+        "folder_id": { "type": "string" },
+        "seed_device_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
       },
       "additionalProperties": true
     },
@@ -29,6 +34,11 @@
           "website_url": { "type": "string" },
           "community_url": { "type": "string" },
           "discord_url": { "type": "string" },
+          "syncthing_folder": { "type": "string" },
+          "syncthing_seed_device_ids": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
           "media": { "type": "object" },
           "links": { "type": "array" }
         },
@@ -38,4 +48,3 @@
   },
   "additionalProperties": true
 }
-

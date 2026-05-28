@@ -1,0 +1,28 @@
+{
+  "game_id": "unvanquished",
+  "title": "Unvanquished",
+  "description": "A free and open-source first-person strategy shooter with quick LAN server setup.",
+  "publisher": "Unvanquished Development",
+  "genre": "First-person shooter / strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://unvanquished.net/",
+  "community_url": "https://wiki.unvanquished.net/wiki/LocalGames",
+  "download_url": "https://unvanquished.net/download/",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://unvanquished.net/"
+    },
+    {
+      "label": "Local games",
+      "url": "https://wiki.unvanquished.net/wiki/LocalGames"
+    },
+    {
+      "label": "Server running",
+      "url": "https://wiki.unvanquished.net/wiki/Server/Running"
+    }
+  ]
+}

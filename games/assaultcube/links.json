@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://assault.cubers.net/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/assaultcube/AC"
+    },
+    {
+      "label": "Server docs",
+      "url": "https://assault.cubers.net/docs/server.html"
+    }
+  ]
+}
