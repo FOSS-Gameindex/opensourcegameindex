@@ -12,6 +12,12 @@
   "website_url": "https://wz2100.net/",
   "community_url": "https://wz2100.net/support/",
   "download_url": "https://wz2100.net/",
+  "media": {
+    "image_url": "media/cover.png",
+    "image_source_url": "https://github.com/Warzone2100/warzone2100",
+    "video_url": "",
+    "video_title": ""
+  },
   "links": [
     {
       "label": "Website",

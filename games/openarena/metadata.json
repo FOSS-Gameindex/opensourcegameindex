@@ -11,6 +11,12 @@
   "website_url": "https://openarena.ws/about.html",
   "community_url": "https://openarena.ws/board/",
   "download_url": "https://openarena.ws/download.php",
+  "media": {
+    "image_url": "media/cover.png",
+    "image_source_url": "https://github.com/OpenArena/engine",
+    "video_url": "",
+    "video_title": ""
+  },
   "links": [
     {
       "label": "Website",

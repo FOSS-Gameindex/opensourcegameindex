@@ -11,6 +11,12 @@
   "website_url": "https://www.widelands.org/",
   "community_url": "https://www.widelands.org/wiki/GameHelpMultiplayer/",
   "download_url": "https://www.widelands.org/wiki/Download/",
+  "media": {
+    "image_url": "media/cover.png",
+    "image_source_url": "https://github.com/widelands/widelands",
+    "video_url": "",
+    "video_title": ""
+  },
   "links": [
     {
       "label": "Website",

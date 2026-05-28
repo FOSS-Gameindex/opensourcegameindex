@@ -192,7 +192,9 @@ def render_links(links: list[dict], locale: str) -> str:
         url = html.escape(str(entry.get("url", "")).strip(), quote=True)
         if not url:
             continue
-        items.append(f'<li><a href="{url}">{html.escape(label)}</a></li>')
+        items.append(
+            f'<li><a href="{url}" target="_blank" rel="noopener noreferrer">{html.escape(label)}</a></li>'
+        )
     if not items:
         return "<p class=\"muted\">No external links available.</p>"
     return f"<ul class=\"link-list\">{''.join(items)}</ul>"
@@ -247,7 +249,7 @@ def render_media(entry: dict, game_dir: Path, title: str) -> str:
         )
         if image_source:
             parts.append(
-                f'<p class="muted meta-caption">Image source: <a href="{html.escape(image_source, quote=True)}">{html.escape(image_source)}</a></p>'
+                f'<p class="muted meta-caption">Image source: <a href="{html.escape(image_source, quote=True)}" target="_blank" rel="noopener noreferrer">{html.escape(image_source)}</a></p>'
             )
     if video_url:
         embed_url = youtube_embed_url(video_url)
@@ -257,9 +259,18 @@ def render_media(entry: dict, game_dir: Path, title: str) -> str:
         )
         if video_source and video_source != video_url:
             parts.append(
-                f'<p class="muted meta-caption">Video source: <a href="{html.escape(video_source, quote=True)}">{html.escape(video_source)}</a></p>'
+                f'<p class="muted meta-caption">Video source: <a href="{html.escape(video_source, quote=True)}" target="_blank" rel="noopener noreferrer">{html.escape(video_source)}</a></p>'
             )
     return "".join(parts)
+
+
+def resolve_index_media_path(game_id: str, media_url: str) -> str:
+    text = str(media_url or "").strip()
+    if not text:
+        return ""
+    if text.startswith("http://") or text.startswith("https://") or text.startswith("//"):
+        return text
+    return f"games/{game_id}/{text.lstrip('./')}"
 
 
 def render_metadata_summary(entry: dict, locale: str) -> str:
@@ -419,7 +430,7 @@ def build_site(root: Path, output: Path) -> None:
             )
         else:
             lan_badge = '<span class="badge badge-no-lan">No LAN mode</span>'
-        background_url = str((entry.get("media", {}) or {}).get("image_url", "")).strip()
+        background_url = resolve_index_media_path(game_id, str((entry.get("media", {}) or {}).get("image_url", "")).strip())
         style_attr = f' style="--card-bg: url(&quot;{html.escape(background_url, quote=True)}&quot;)"' if background_url else ""
         page = render_page(
             title,
