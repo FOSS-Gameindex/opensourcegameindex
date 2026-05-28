@@ -164,6 +164,110 @@ def render_links(links: list[dict], locale: str) -> str:
     return f"<ul class=\"link-list\">{''.join(items)}</ul>"
 
 
+def render_field_list(items: list[tuple[str, str]]) -> str:
+    rows = []
+    for label, value in items:
+        if not value:
+            continue
+        rows.append(
+            f"<dt>{html.escape(label)}</dt><dd>{html.escape(value)}</dd>"
+        )
+    if not rows:
+        return "<p class=\"muted\">No structured metadata available.</p>"
+    return f"<dl class=\"meta-list\">{''.join(rows)}</dl>"
+
+
+def youtube_embed_url(raw: str) -> str:
+    text = str(raw or "").strip()
+    if not text:
+        return ""
+    if "youtube.com/embed/" in text:
+        return text
+    if "youtu.be/" in text:
+        video_id = text.rsplit("/", 1)[-1].split("?")[0]
+        return f"https://www.youtube.com/embed/{video_id}"
+    if "watch?v=" in text:
+        video_id = text.split("watch?v=", 1)[1].split("&", 1)[0]
+        return f"https://www.youtube.com/embed/{video_id}"
+    if "youtube.com/watch" in text:
+        video_id = text.split("v=", 1)[-1].split("&", 1)[0]
+        return f"https://www.youtube.com/embed/{video_id}"
+    return text
+
+
+def render_media(entry: dict, game_dir: Path, title: str) -> str:
+    media = entry.get("media", {})
+    if not isinstance(media, dict):
+        media = {}
+    image_url = str(media.get("image_url", "") or media.get("image", "")).strip()
+    image_alt = str(media.get("image_alt", "")).strip() or title
+    image_source = str(media.get("image_source_url", "")).strip()
+    video_url = str(media.get("video_url", "") or media.get("youtube_url", "")).strip()
+    video_title = str(media.get("video_title", "")).strip()
+    video_source = str(media.get("video_source_url", "")).strip()
+    parts = []
+    if image_url:
+        resolved_image = html.escape(image_url, quote=True)
+        parts.append(
+            f'<img class="game-hero" src="{resolved_image}" alt="{html.escape(image_alt, quote=True)}">'
+        )
+        if image_source:
+            parts.append(
+                f'<p class="muted meta-caption">Image source: <a href="{html.escape(image_source, quote=True)}">{html.escape(image_source)}</a></p>'
+            )
+    if video_url:
+        embed_url = youtube_embed_url(video_url)
+        label = video_title or "Video"
+        parts.append(
+            f'<div class="video-frame"><iframe src="{html.escape(embed_url, quote=True)}" title="{html.escape(label, quote=True)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>'
+        )
+        if video_source and video_source != video_url:
+            parts.append(
+                f'<p class="muted meta-caption">Video source: <a href="{html.escape(video_source, quote=True)}">{html.escape(video_source)}</a></p>'
+            )
+    return "".join(parts)
+
+
+def render_metadata_summary(entry: dict, locale: str) -> str:
+    title = localize_text(entry.get("title"), locale)
+    description = localize_text(entry.get("description"), locale)
+    publisher = localize_text(entry.get("publisher"), locale)
+    release_year = localize_text(entry.get("release_year"), locale)
+    genre = localize_text(entry.get("genre"), locale)
+    lan_supported = "Yes" if entry.get("lan_supported") is True else "No"
+    max_players = str(entry.get("max_players", "")).strip()
+    runtime_support = ", ".join(normalize_runtime_support(entry.get("runtime_support", entry.get("supported_runtimes"))))
+    website_url = str(entry.get("website_url", "")).strip()
+    community_url = str(entry.get("community_url", "")).strip()
+    discord_url = str(entry.get("discord_url", "")).strip()
+    download_url = str(entry.get("download_url", "")).strip()
+    links_count = str(len(entry.get("links", [])) if isinstance(entry.get("links"), list) else 0)
+    media = entry.get("media", {})
+    if not isinstance(media, dict):
+        media = {}
+    video_url = str(media.get("video_url", "") or media.get("youtube_url", "")).strip()
+    image_url = str(media.get("image_url", "") or media.get("image", "")).strip()
+    return render_field_list(
+        [
+            ("Title", title),
+            ("Description", description),
+            ("Publisher", publisher),
+            ("Release year", release_year),
+            ("Genre", genre),
+            ("LAN supported", lan_supported),
+            ("Max players", max_players),
+            ("Runtime support", runtime_support),
+            ("Website", website_url),
+            ("Community", community_url),
+            ("Discord", discord_url),
+            ("Download", download_url),
+            ("Image URL", image_url),
+            ("Video URL", video_url),
+            ("Links", links_count),
+        ]
+    )
+
+
 def render_page(title: str, body: str) -> str:
     return f"""<!doctype html>
 <html lang="en">
@@ -180,10 +284,16 @@ def render_page(title: str, body: str) -> str:
     .muted {{ color: #a8b5c6; }}
     .link-list {{ padding-left: 1.2rem; }}
     .game-hero {{ width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }}
+    .video-frame {{ position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-top: 0.8rem; }}
+    .video-frame iframe {{ width: 100%; height: 100%; border: 0; display: block; }}
     .badge-row {{ display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0 0.4rem; }}
     .badge {{ display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.6rem; border-radius: 999px; font-size: 0.82rem; border: 1px solid transparent; }}
     .badge-lan {{ background: rgba(68, 173, 92, 0.16); color: #9af0aa; border-color: rgba(68, 173, 92, 0.35); }}
     .badge-no-lan {{ background: rgba(255, 255, 255, 0.06); color: #c4cedb; border-color: rgba(255, 255, 255, 0.1); }}
+    .meta-list {{ display: grid; grid-template-columns: minmax(140px, 180px) 1fr; gap: 0.4rem 0.8rem; margin: 0; }}
+    .meta-list dt {{ color: #a8b5c6; font-size: 0.9rem; }}
+    .meta-list dd {{ margin: 0; word-break: break-word; }}
+    .meta-caption {{ margin: 0.5rem 0 0; }}
     .filter-bar {{ display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 1rem; }}
     .filter-section {{ margin: 0.75rem 0 1rem; }}
     .filter-label {{ display: block; margin: 0 0 0.35rem; color: #a8b5c6; font-size: 0.9rem; }}
@@ -215,9 +325,9 @@ def build_site(root: Path, output: Path) -> None:
         locale = "en"
         title = localize_text(entry.get("title"), locale) or game_id
         description = localize_text(entry.get("description"), locale)
-        media = entry.get("media", {})
-        image_rel = str(media.get("image", "")).strip()
         detail_html = render_links(entry.get("links", []), locale)
+        metadata_html = render_metadata_summary(entry, locale)
+        media_html = render_media(entry, game_dir, title)
         lan_supported = entry.get("lan_supported") is True
         max_players = str(entry.get("max_players", "")).strip()
         player_bucket_value = str(entry.get("player_bucket", "unknown"))
@@ -236,12 +346,6 @@ def build_site(root: Path, output: Path) -> None:
                     game_output / folder_name,
                     dirs_exist_ok=True,
                 )
-        image_html = ""
-        if image_rel:
-            image_html = (
-                f'<img class="game-hero" src="{html.escape(image_rel, quote=True)}" '
-                f'alt="{html.escape(title)}">'
-            )
         lan_badge = ""
         if lan_supported:
             player_text = f"{html.escape(max_players)} players" if max_players else "LAN"
@@ -265,14 +369,20 @@ def build_site(root: Path, output: Path) -> None:
 </header>
 <main class="grid">
   <section class="card">
-    {image_html}
+    {media_html}
     <h2>Metadata</h2>
-    <pre>{html.escape(json.dumps(entry, indent=2, ensure_ascii=False))}</pre>
+    {metadata_html}
+    <p><a href="metadata.json" download>Download machine-readable metadata.json</a></p>
+    <details>
+      <summary>Raw metadata</summary>
+      <pre>{html.escape(json.dumps(entry, indent=2, ensure_ascii=False))}</pre>
+    </details>
   </section>
   <section class="card">
     <h2>Links</h2>
     {detail_html}
     <p class="muted">Source files: <code>games/{html.escape(game_id)}</code></p>
+    <p><a href="metadata.json" download>Download metadata.json</a></p>
   </section>
 </main>
 """,

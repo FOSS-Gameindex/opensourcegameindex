@@ -11,6 +11,12 @@
   "website_url": "https://www.freeciv.org/",
   "community_url": "https://forum.freeciv.org/f/viewtopic.php?t=73501",
   "download_url": "https://play.freeciv.org/download.html",
+  "media": {
+    "image_url": "https://files.freeciv.org/screenshots/3.1/client.gtk322-3.1.0.png",
+    "image_source_url": "https://redmine.freeciv.org/attachments/358",
+    "video_url": "https://www.youtube.com/watch?v=cnGJddIfgw0",
+    "video_title": "Freeciv gameplay video"
+  },
   "links": [
     {
       "label": "Website",

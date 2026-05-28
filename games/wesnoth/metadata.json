@@ -11,6 +11,12 @@
   "website_url": "https://www.wesnoth.org/",
   "community_url": "https://wiki.wesnoth.org/MultiplayerServers",
   "download_url": "https://wiki.wesnoth.org/Download",
+  "media": {
+    "image_url": "https://www.wesnoth.org/images/sshots/wesnoth-1.18.0-1-192.jpg",
+    "image_source_url": "https://wiki.wesnoth.org/Screenshots",
+    "video_url": "https://www.youtube.com/watch?v=4Ebww6utt9I",
+    "video_title": "Battle for Wesnoth release trailer"
+  },
   "links": [
     {
       "label": "Website",
