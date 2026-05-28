@@ -26,5 +26,6 @@
       "label": "Source",
       "url": "https://git.minetest.land/VoxeLibre/VoxeLibre"
     }
-  ]
+  ],
+  "category": "Sandbox"
 }

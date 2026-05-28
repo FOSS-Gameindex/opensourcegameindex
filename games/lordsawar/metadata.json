@@ -30,5 +30,6 @@
       "label": "Feed",
       "url": "https://savannah.nongnu.org/news/atom.php?group=lordsawar"
     }
-  ]
+  ],
+  "category": "Strategy"
 }

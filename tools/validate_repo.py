@@ -44,6 +44,10 @@ def validate_game(game_dir: Path) -> list[str]:
     elif game_id != game_dir.name:
         errors.append(f"{metadata_path}: game_id does not match folder name")
 
+    category = str(metadata.get("category", "")).strip()
+    if not category:
+        errors.append(f"{metadata_path}: missing category")
+
     links = metadata.get("links", [])
     if isinstance(links, list):
         for entry in links:
@@ -81,4 +85,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

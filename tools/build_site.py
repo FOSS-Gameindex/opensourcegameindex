@@ -82,6 +82,38 @@ def runtime_bucket(values: list[str]) -> str:
     return values[0]
 
 
+def normalize_category(raw: object, genre: str, title: str) -> str:
+    text = str(raw or "").strip()
+    if text:
+        return text
+    genre_text = genre.strip().lower()
+    if not genre_text:
+        genre_text = title.strip().lower()
+    if any(token in genre_text for token in ("shooter", "fps", "quake", "heretic", "hexen", "doom")):
+        return "Shooter"
+    if any(token in genre_text for token in ("strategy", "tactics", "tower defense", "simulation", "transport")):
+        return "Strategy"
+    if any(token in genre_text for token in ("racing", "kart")):
+        return "Racing"
+    if any(token in genre_text for token in ("puzzle", "match", "arcade")):
+        return "Puzzle"
+    if any(token in genre_text for token in ("rpg", "role", "open-world")):
+        return "RPG"
+    if any(token in genre_text for token in ("platform",)):
+        return "Platformer"
+    if any(token in genre_text for token in ("fighting", "combat")):
+        return "Fighting"
+    if any(token in genre_text for token in ("sandbox",)):
+        return "Sandbox"
+    if any(token in genre_text for token in ("server", "mmo")):
+        return "Server"
+    if any(token in genre_text for token in ("party",)):
+        return "Party"
+    if any(token in genre_text for token in ("engine",)):
+        return "Engine"
+    return "Action"
+
+
 def build_index(root: Path) -> dict:
     source_config = load_optional_json(root / "source.json")
     source_seed_device_ids: list[str] = []
@@ -100,6 +132,7 @@ def build_index(root: Path) -> dict:
         runtime_support = normalize_runtime_support(
             metadata.get("runtime_support", metadata.get("supported_runtimes"))
         )
+        category = normalize_category(metadata.get("category"), str(metadata.get("genre", "")), str(metadata.get("title", "")))
         game_seed_device_ids: list[str] = []
         if isinstance(payload.get("syncthing_seed_device_ids"), list):
             for value in payload.get("syncthing_seed_device_ids", []):
@@ -116,6 +149,7 @@ def build_index(root: Path) -> dict:
                 "publisher": metadata.get("publisher", ""),
                 "release_year": metadata.get("release_year", ""),
                 "genre": metadata.get("genre", ""),
+                "category": category,
                 "lan_supported": lan_supported,
                 "max_players": metadata.get("max_players", ""),
                 "player_count": player_count,
@@ -234,6 +268,7 @@ def render_metadata_summary(entry: dict, locale: str) -> str:
     publisher = localize_text(entry.get("publisher"), locale)
     release_year = localize_text(entry.get("release_year"), locale)
     genre = localize_text(entry.get("genre"), locale)
+    category = localize_text(entry.get("category"), locale)
     lan_supported = "Yes" if entry.get("lan_supported") is True else "No"
     max_players = str(entry.get("max_players", "")).strip()
     runtime_support = ", ".join(normalize_runtime_support(entry.get("runtime_support", entry.get("supported_runtimes"))))
@@ -254,6 +289,7 @@ def render_metadata_summary(entry: dict, locale: str) -> str:
             ("Publisher", publisher),
             ("Release year", release_year),
             ("Genre", genre),
+            ("Category", category),
             ("LAN supported", lan_supported),
             ("Max players", max_players),
             ("Runtime support", runtime_support),
@@ -268,7 +304,8 @@ def render_metadata_summary(entry: dict, locale: str) -> str:
     )
 
 
-def render_page(title: str, body: str) -> str:
+def render_page(title: str, body: str, body_class: str = "") -> str:
+    body_attr = f' class="{html.escape(body_class)}"' if body_class else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -277,9 +314,12 @@ def render_page(title: str, body: str) -> str:
   <title>{html.escape(title)}</title>
   <style>
     body {{ font-family: system-ui, sans-serif; margin: 0; background: #0f1722; color: #e7edf5; }}
+    body.site-index header, body.site-index main {{ max-width: none; }}
     header, main {{ max-width: 1100px; margin: 0 auto; padding: 1.2rem; }}
+    body.site-index main {{ padding-inline: 1rem; }}
     .card {{ background: #182435; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1rem; }}
     .grid {{ display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }}
+    .game-grid {{ grid-template-columns: repeat(auto-fit, minmax(260px, 320px)); grid-auto-rows: 280px; align-items: stretch; justify-content: start; }}
     a {{ color: #8fd3ff; }}
     .muted {{ color: #a8b5c6; }}
     .link-list {{ padding-left: 1.2rem; }}
@@ -290,20 +330,41 @@ def render_page(title: str, body: str) -> str:
     .badge {{ display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.3rem 0.6rem; border-radius: 999px; font-size: 0.82rem; border: 1px solid transparent; }}
     .badge-lan {{ background: rgba(68, 173, 92, 0.16); color: #9af0aa; border-color: rgba(68, 173, 92, 0.35); }}
     .badge-no-lan {{ background: rgba(255, 255, 255, 0.06); color: #c4cedb; border-color: rgba(255, 255, 255, 0.1); }}
+    .badge-category {{ background: rgba(143, 211, 255, 0.12); color: #d1f0ff; border-color: rgba(143, 211, 255, 0.28); }}
     .meta-list {{ display: grid; grid-template-columns: minmax(140px, 180px) 1fr; gap: 0.4rem 0.8rem; margin: 0; }}
     .meta-list dt {{ color: #a8b5c6; font-size: 0.9rem; }}
     .meta-list dd {{ margin: 0; word-break: break-word; }}
     .meta-caption {{ margin: 0.5rem 0 0; }}
-    .filter-bar {{ display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0 1rem; }}
-    .filter-section {{ margin: 0.75rem 0 1rem; }}
-    .filter-label {{ display: block; margin: 0 0 0.35rem; color: #a8b5c6; font-size: 0.9rem; }}
+    .filter-toolbar {{ display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: end; margin: 0.75rem 0 1.25rem; }}
+    .filter-field {{ display: flex; flex-direction: column; gap: 0.35rem; min-width: 180px; flex: 1 1 180px; }}
+    .filter-label {{ display: block; color: #a8b5c6; font-size: 0.9rem; }}
+    .filter-input {{ width: 100%; box-sizing: border-box; border: 1px solid rgba(255,255,255,0.14); background: rgba(10, 15, 24, 0.72); color: #e7edf5; border-radius: 12px; padding: 0.65rem 0.8rem; }}
+    .filter-input:focus {{ outline: 2px solid rgba(143, 211, 255, 0.45); outline-offset: 1px; }}
     .filter-btn {{ appearance: none; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: #e7edf5; border-radius: 999px; padding: 0.45rem 0.8rem; cursor: pointer; }}
     .filter-btn[aria-pressed="true"] {{ background: rgba(143, 211, 255, 0.16); border-color: rgba(143, 211, 255, 0.36); }}
     .cards-empty {{ color: #a8b5c6; padding: 1rem 0.25rem; }}
-    .card.is-hidden {{ display: none; }}
+    .is-hidden {{ display: none !important; }}
+    .game-card {{ position: relative; overflow: hidden; padding: 0; display: flex; align-items: stretch; background-color: #101722; background-image: linear-gradient(180deg, rgba(10, 14, 20, 0.08), rgba(10, 14, 20, 0.88)), var(--card-bg, linear-gradient(135deg, rgba(38,56,84,0.9), rgba(18,24,36,0.95))); background-size: cover; background-position: center; }}
+    .game-card-link {{ position: absolute; inset: 0; z-index: 1; }}
+    .game-card-overlay {{ position: relative; z-index: 0; display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.45rem; width: 100%; min-height: 100%; padding: 1rem; background: linear-gradient(180deg, rgba(3, 8, 14, 0.08), rgba(3, 8, 14, 0.72)); }}
+    .game-card-overlay h2 {{ margin: 0; font-size: 1.35rem; text-wrap: balance; }}
+    .game-card-overlay .category-line {{ margin: 0; font-weight: 700; letter-spacing: 0.02em; }}
+    .game-card-overlay .description-line {{ margin: 0; align-self: end; transform: translateY(-20px); }}
+    .game-card-overlay .badge-row {{ margin-top: 0; transform: translateY(-20px); }}
+    .game-card-overlay .badge {{ backdrop-filter: blur(6px); }}
+    .table-wrap {{ overflow-x: auto; }}
+    .game-table {{ width: 100%; border-collapse: collapse; }}
+    .game-table th, .game-table td {{ text-align: left; padding: 0.7rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }}
+    .game-table th {{ position: sticky; top: 0; background: #182435; z-index: 1; }}
+    .sort-btn {{ appearance: none; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; padding: 0; }}
+    .table-panel {{ margin-top: 1rem; }}
+    .view-toggle {{ display: flex; gap: 0.5rem; }}
+    .view-active-grid #games-table-panel {{ display: none; }}
+    .view-active-table #games-grid {{ display: none; }}
+    .view-active-table #games-table-panel {{ display: block; }}
   </style>
 </head>
-<body>
+<body{body_attr}>
 {body}
 </body>
 </html>
@@ -318,6 +379,7 @@ def build_site(root: Path, output: Path) -> None:
     )
     lan_count = sum(1 for entry in index["games"] if entry.get("lan_supported") is True)
     game_count = len(index["games"])
+    categories = sorted({str(entry.get("category", "")).strip() for entry in index["games"] if str(entry.get("category", "")).strip()})
     games_html = []
     for entry in index["games"]:
         game_id = str(entry["game_id"])
@@ -325,6 +387,7 @@ def build_site(root: Path, output: Path) -> None:
         locale = "en"
         title = localize_text(entry.get("title"), locale) or game_id
         description = localize_text(entry.get("description"), locale)
+        category = str(entry.get("category", "")).strip() or "Action"
         detail_html = render_links(entry.get("links", []), locale)
         metadata_html = render_metadata_summary(entry, locale)
         media_html = render_media(entry, game_dir, title)
@@ -356,6 +419,8 @@ def build_site(root: Path, output: Path) -> None:
             )
         else:
             lan_badge = '<span class="badge badge-no-lan">No LAN mode</span>'
+        background_url = str((entry.get("media", {}) or {}).get("image_url", "")).strip()
+        style_attr = f' style="--card-bg: url(&quot;{html.escape(background_url, quote=True)}&quot;)"' if background_url else ""
         page = render_page(
             title,
             f"""
@@ -364,6 +429,7 @@ def build_site(root: Path, output: Path) -> None:
   <h1>{html.escape(title)}</h1>
   <p class="muted">{html.escape(description)}</p>
   <div class="badge-row">
+    <span class="badge badge-category">{html.escape(category)}</span>
     {lan_badge}
   </div>
 </header>
@@ -386,20 +452,25 @@ def build_site(root: Path, output: Path) -> None:
   </section>
 </main>
 """,
+            body_class="site-game",
         )
         (game_output / "index.html").write_text(page, encoding="utf-8")
         games_html.append(
             f"""
-<article class="card" data-lan-supported="{1 if lan_supported else 0}" data-player-bucket="{html.escape(player_bucket_value)}" data-runtime-bucket="{html.escape(runtime_bucket_value)}">
-  <h2><a href="games/{html.escape(game_id)}/index.html">{html.escape(title)}</a></h2>
-  <p class="muted">{html.escape(description)}</p>
-  <div class="badge-row">
-    <span class="badge {'badge-lan' if lan_supported else 'badge-no-lan'}">
-      {'LAN supported' if lan_supported else 'No LAN mode'}
-      {f' · {html.escape(max_players)} players' if lan_supported and max_players else ''}
-    </span>
+<article class="card game-card" data-title="{html.escape(title.lower(), quote=True)}" data-category="{html.escape(category.lower(), quote=True)}" data-genre="{html.escape(str(entry.get('genre', '')), quote=True)}" data-lan-supported="{1 if lan_supported else 0}" data-player-bucket="{html.escape(player_bucket_value)}" data-runtime-bucket="{html.escape(runtime_bucket_value)}" data-sort-title="{html.escape(title.lower(), quote=True)}" data-sort-category="{html.escape(category.lower(), quote=True)}" data-sort-genre="{html.escape(str(entry.get('genre', '')).lower(), quote=True)}" data-sort-players="{entry.get('player_count') if entry.get('player_count') is not None else -1}" data-sort-runtime="{html.escape(runtime_bucket_value.lower(), quote=True)}"{style_attr}>
+  <a class="game-card-link" href="games/{html.escape(game_id)}/index.html" aria-label="{html.escape(title)}"></a>
+  <div class="game-card-overlay">
+    <h2>{html.escape(title)}</h2>
+    <p class="muted category-line">{html.escape(category)}</p>
+    <div></div>
+    <p class="muted description-line">{html.escape(description)}</p>
+    <div class="badge-row">
+      <span class="badge {'badge-lan' if lan_supported else 'badge-no-lan'}">
+        {'LAN supported' if lan_supported else 'No LAN mode'}
+        {f' · {html.escape(max_players)} players' if lan_supported and max_players else ''}
+      </span>
+    </div>
   </div>
-  <p><a href="games/{html.escape(game_id)}/index.html">Open game page</a></p>
 </article>
 """
         )
@@ -412,51 +483,129 @@ def build_site(root: Path, output: Path) -> None:
   <p class="muted">LAN-capable games: {lan_count} of {game_count}</p>
 </header>
 <main>
-  <div class="filter-section">
-    <span class="filter-label">Catalog filter</span>
-    <div class="filter-bar" role="toolbar" aria-label="Game filters">
-      <button class="filter-btn" type="button" data-lan-filter="all" aria-pressed="true">All games</button>
-      <button class="filter-btn" type="button" data-lan-filter="lan" aria-pressed="false">LAN supported</button>
-      <button class="filter-btn" type="button" data-lan-filter="nonlan" aria-pressed="false">No LAN mode</button>
+  <div class="filter-toolbar">
+    <label class="filter-field">
+      <span class="filter-label">Search titles</span>
+      <input id="search-box" class="filter-input" type="search" placeholder="Type to filter by title">
+    </label>
+    <label class="filter-field">
+      <span class="filter-label">Category</span>
+      <select id="category-filter" class="filter-input">
+        <option value="all">All categories</option>
+        {''.join(f'<option value="{html.escape(category.lower(), quote=True)}">{html.escape(category)}</option>' for category in categories)}
+      </select>
+    </label>
+    <label class="filter-field">
+      <span class="filter-label">Catalog filter</span>
+      <select id="lan-filter" class="filter-input">
+        <option value="all">All games</option>
+        <option value="lan">LAN supported</option>
+        <option value="nonlan">No LAN mode</option>
+      </select>
+    </label>
+    <label class="filter-field">
+      <span class="filter-label">Player count</span>
+      <select id="player-filter" class="filter-input">
+        <option value="all">Any count</option>
+        <option value="1-2">1-2</option>
+        <option value="3-4">3-4</option>
+        <option value="5-8">5-8</option>
+        <option value="9+">9+</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </label>
+    <label class="filter-field">
+      <span class="filter-label">Runtime support</span>
+      <select id="runtime-filter" class="filter-input">
+        <option value="all">Any runtime</option>
+        <option value="native">Native</option>
+        <option value="wine">Wine</option>
+        <option value="proton">Proton</option>
+        <option value="proton-ge">Proton-GE</option>
+        <option value="mixed">Mixed</option>
+        <option value="unknown">Unknown</option>
+      </select>
+    </label>
+    <div class="filter-field view-toggle-field">
+      <span class="filter-label">View</span>
+      <div class="view-toggle" role="tablist" aria-label="View toggle">
+        <button class="filter-btn" type="button" data-view="grid" aria-pressed="true">Grid</button>
+        <button class="filter-btn" type="button" data-view="table" aria-pressed="false">Table</button>
+      </div>
     </div>
   </div>
-  <div class="filter-section">
-    <span class="filter-label">Player count</span>
-    <div class="filter-bar" role="toolbar" aria-label="Player count filters">
-      <button class="filter-btn" type="button" data-player-filter="all" aria-pressed="true">Any count</button>
-      <button class="filter-btn" type="button" data-player-filter="1-2" aria-pressed="false">1-2</button>
-      <button class="filter-btn" type="button" data-player-filter="3-4" aria-pressed="false">3-4</button>
-      <button class="filter-btn" type="button" data-player-filter="5-8" aria-pressed="false">5-8</button>
-      <button class="filter-btn" type="button" data-player-filter="9+" aria-pressed="false">9+</button>
-      <button class="filter-btn" type="button" data-player-filter="unknown" aria-pressed="false">Unknown</button>
-    </div>
-  </div>
-  <div class="filter-section">
-    <span class="filter-label">Runtime support</span>
-    <div class="filter-bar" role="toolbar" aria-label="Runtime support filters">
-      <button class="filter-btn" type="button" data-runtime-filter="all" aria-pressed="true">Any runtime</button>
-      <button class="filter-btn" type="button" data-runtime-filter="native" aria-pressed="false">Native</button>
-      <button class="filter-btn" type="button" data-runtime-filter="wine" aria-pressed="false">Wine</button>
-      <button class="filter-btn" type="button" data-runtime-filter="proton" aria-pressed="false">Proton</button>
-      <button class="filter-btn" type="button" data-runtime-filter="proton-ge" aria-pressed="false">Proton-GE</button>
-      <button class="filter-btn" type="button" data-runtime-filter="mixed" aria-pressed="false">Mixed</button>
-      <button class="filter-btn" type="button" data-runtime-filter="unknown" aria-pressed="false">Unknown</button>
-    </div>
-  </div>
-  <section class="grid" id="games-grid">
+  <section class="grid game-grid" id="games-grid">
     {''.join(games_html)}
+  </section>
+  <section class="card table-panel" id="games-table-panel" hidden>
+    <div class="table-wrap">
+      <table class="game-table">
+        <thead>
+          <tr>
+            <th><button type="button" class="sort-btn" data-sort-key="title" aria-sort="ascending">Title</button></th>
+            <th><button type="button" class="sort-btn" data-sort-key="category">Category</button></th>
+            <th><button type="button" class="sort-btn" data-sort-key="genre">Genre</button></th>
+            <th><button type="button" class="sort-btn" data-sort-key="lan">LAN</button></th>
+            <th><button type="button" class="sort-btn" data-sort-key="players">Players</button></th>
+            <th><button type="button" class="sort-btn" data-sort-key="runtime">Runtime</button></th>
+          </tr>
+        </thead>
+        <tbody id="games-table-body">
+          {''.join(
+              f'<tr class="table-row" data-title="{html.escape(str(entry.get("title", "")).lower(), quote=True)}" data-category="{html.escape(str(entry.get("category", "")).lower(), quote=True)}" data-genre="{html.escape(str(entry.get("genre", "")).lower(), quote=True)}" data-lan-supported="{1 if entry.get("lan_supported") is True else 0}" data-player-bucket="{html.escape(str(entry.get("player_bucket", "unknown")), quote=True)}" data-runtime-bucket="{html.escape(str(entry.get("runtime_bucket", "unknown")), quote=True)}" data-sort-title="{html.escape(str(entry.get("title", "")).lower(), quote=True)}" data-sort-category="{html.escape(str(entry.get("category", "")).lower(), quote=True)}" data-sort-genre="{html.escape(str(entry.get("genre", "")).lower(), quote=True)}" data-sort-lan="{1 if entry.get("lan_supported") is True else 0}" data-sort-players="{entry.get("player_count") if entry.get("player_count") is not None else -1}" data-sort-runtime="{html.escape(str(entry.get("runtime_bucket", "unknown")).lower(), quote=True)}"><td><a href="games/{html.escape(str(entry.get("game_id", "")))}/index.html">{html.escape(str(entry.get("title", "")))}</a></td><td>{html.escape(str(entry.get("category", "")))}</td><td>{html.escape(str(entry.get("genre", "")))}</td><td>{"Yes" if entry.get("lan_supported") is True else "No"}</td><td>{html.escape(str(entry.get("max_players", "")))}</td><td>{html.escape(", ".join(normalize_runtime_support(entry.get("runtime_support", entry.get("supported_runtimes")))))}</td></tr>'
+              for entry in index["games"]
+          )}
+        </tbody>
+      </table>
+    </div>
   </section>
   <p class="cards-empty" id="games-empty" hidden>No games match the selected filter.</p>
   <script>
   (function () {{
-    const buttons = Array.from(document.querySelectorAll('.filter-btn'));
+    const searchBox = document.getElementById('search-box');
+    const categoryFilter = document.getElementById('category-filter');
+    const lanFilter = document.getElementById('lan-filter');
+    const playerFilter = document.getElementById('player-filter');
+    const runtimeFilter = document.getElementById('runtime-filter');
+    const viewButtons = Array.from(document.querySelectorAll('[data-view]'));
     const cards = Array.from(document.querySelectorAll('#games-grid .card'));
+    const tablePanel = document.getElementById('games-table-panel');
+    const tableBody = document.getElementById('games-table-body');
+    const tableRows = Array.from(document.querySelectorAll('#games-table-body .table-row'));
+    const sortButtons = Array.from(document.querySelectorAll('.sort-btn'));
     const empty = document.getElementById('games-empty');
     const state = {{
+      search: '',
+      category: 'all',
       lan: 'all',
       players: 'all',
       runtime: 'all',
+      view: 'grid',
+      sortKey: 'title',
+      sortDir: 'asc',
     }};
+
+    function setView(view) {{
+      state.view = view;
+      document.body.dataset.view = view;
+      const gridVisible = view === 'grid';
+      document.body.classList.toggle('view-active-grid', gridVisible);
+      document.body.classList.toggle('view-active-table', !gridVisible);
+      document.getElementById('games-grid').hidden = !gridVisible;
+      tablePanel.hidden = gridVisible;
+      for (const button of viewButtons) {{
+        button.setAttribute('aria-pressed', button.dataset.view === view ? 'true' : 'false');
+      }}
+    }}
+
+    function matchesSearch(row, search) {{
+      if (!search) return true;
+      return (row.dataset.title || '').includes(search);
+    }}
+
+    function matchesCategory(row, value) {{
+      return value === 'all' || (row.dataset.category || '') === value;
+    }}
 
     function matchesPlayerFilter(card, mode) {{
       const bucket = card.dataset.playerBucket || 'unknown';
@@ -473,10 +622,50 @@ def build_site(root: Path, output: Path) -> None:
       return mode === 'all' || bucket === mode;
     }}
 
+    function matchesLanFilterRow(row, mode) {{
+      const lanSupported = row.dataset.lanSupported === '1';
+      return mode === 'all' || (mode === 'lan' && lanSupported) || (mode === 'nonlan' && !lanSupported);
+    }}
+
+    function matchesPlayerFilterRow(row, mode) {{
+      const bucket = row.dataset.playerBucket || 'unknown';
+      return mode === 'all' || bucket === mode;
+    }}
+
+    function matchesRuntimeFilterRow(row, mode) {{
+      const bucket = row.dataset.runtimeBucket || 'unknown';
+      return mode === 'all' || bucket === mode;
+    }}
+
+    function compareRows(a, b, key, dir) {{
+      const left = a.dataset['sort' + key[0].toUpperCase() + key.slice(1)] || '';
+      const right = b.dataset['sort' + key[0].toUpperCase() + key.slice(1)] || '';
+      let result = 0;
+      if (key === 'players' || key === 'lan') {{
+        result = Number(left) - Number(right);
+      }} else {{
+        result = String(left).localeCompare(String(right));
+      }}
+      return dir === 'asc' ? result : -result;
+    }}
+
+    function applySort() {{
+      const rows = [...tableRows].sort((a, b) => compareRows(a, b, state.sortKey, state.sortDir));
+      for (const row of rows) {{
+        tableBody.appendChild(row);
+      }}
+      for (const button of sortButtons) {{
+        const active = button.dataset.sortKey === state.sortKey;
+        button.setAttribute('aria-sort', active ? (state.sortDir === 'asc' ? 'ascending' : 'descending') : 'none');
+      }}
+    }}
+
     function applyFilters() {{
       let visible = 0;
       for (const card of cards) {{
         const show =
+          matchesSearch(card, state.search) &&
+          matchesCategory(card, state.category) &&
           matchesLanFilter(card, state.lan) &&
           matchesPlayerFilter(card, state.players) &&
           matchesRuntimeFilter(card, state.runtime);
@@ -485,37 +674,67 @@ def build_site(root: Path, output: Path) -> None:
           visible += 1;
         }}
       }}
+      for (const row of tableRows) {{
+        const show =
+          matchesSearch(row, state.search) &&
+          matchesCategory(row, state.category) &&
+          matchesLanFilterRow(row, state.lan) &&
+          matchesPlayerFilterRow(row, state.players) &&
+          matchesRuntimeFilterRow(row, state.runtime);
+        row.classList.toggle('is-hidden', !show);
+        if (show) {{
+          visible += 1;
+        }}
+      }}
       if (empty) {{
         empty.hidden = visible !== 0;
       }}
-      for (const button of buttons) {{
-        const active =
-          (button.dataset.lanFilter && button.dataset.lanFilter === state.lan) ||
-          (button.dataset.playerFilter && button.dataset.playerFilter === state.players) ||
-          (button.dataset.runtimeFilter && button.dataset.runtimeFilter === state.runtime);
-        button.setAttribute('aria-pressed', active ? 'true' : 'false');
-      }}
     }}
 
-    for (const button of buttons) {{
+    searchBox.addEventListener('input', () => {{
+      state.search = searchBox.value.trim().toLowerCase();
+      applyFilters();
+    }});
+    categoryFilter.addEventListener('change', () => {{
+      state.category = categoryFilter.value;
+      applyFilters();
+    }});
+    lanFilter.addEventListener('change', () => {{
+      state.lan = lanFilter.value;
+      applyFilters();
+    }});
+    playerFilter.addEventListener('change', () => {{
+      state.players = playerFilter.value;
+      applyFilters();
+    }});
+    runtimeFilter.addEventListener('change', () => {{
+      state.runtime = runtimeFilter.value;
+      applyFilters();
+    }});
+    for (const button of viewButtons) {{
+      button.addEventListener('click', () => setView(button.dataset.view || 'grid'));
+    }}
+    for (const button of sortButtons) {{
       button.addEventListener('click', () => {{
-        if (button.dataset.lanFilter) {{
-          state.lan = button.dataset.lanFilter || 'all';
+        const key = button.dataset.sortKey || 'title';
+        if (state.sortKey === key) {{
+          state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+        }} else {{
+          state.sortKey = key;
+          state.sortDir = 'asc';
         }}
-        if (button.dataset.playerFilter) {{
-          state.players = button.dataset.playerFilter || 'all';
-        }}
-        if (button.dataset.runtimeFilter) {{
-          state.runtime = button.dataset.runtimeFilter || 'all';
-        }}
+        applySort();
         applyFilters();
       }});
     }}
+    setView('grid');
+    applySort();
     applyFilters();
   }})();
   </script>
 </main>
 """,
+        body_class="site-index",
     )
     (output / "index.html").write_text(index_page, encoding="utf-8")
 
