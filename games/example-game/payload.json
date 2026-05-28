@@ -1,8 +1,0 @@
-{
-  "syncthing_folder": "example-game",
-  "syncthing_seed_device_ids": [
-    "EXAMPLE-SEED-DEVICE-ID"
-  ],
-  "payload_root": "payload/example-game",
-  "checksum": "sha256:replace-me"
-}

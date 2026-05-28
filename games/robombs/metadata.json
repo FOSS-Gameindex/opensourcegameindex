@@ -1,0 +1,34 @@
+{
+  "game_id": "robombs",
+  "title": "Robombs",
+  "description": "An open-source Bomberman-style game with LAN and online multiplayer.",
+  "publisher": "Robombs Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://jpct.de/robombs.game/",
+  "community_url": "https://jpct.de/robombs.game/download/",
+  "download_url": "https://jpct.de/robombs.game/download/",
+  "media": {
+    "image_url": "https://jpct.de/robombs.game/wp-content/uploads/2008/10/new_look.png",
+    "image_source_url": "https://jpct.de/robombs.game/",
+    "video_url": "https://www.youtube.com/watch?v=-pxRaq5YVeY",
+    "video_title": "Robombs gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://jpct.de/robombs.game/"
+    },
+    {
+      "label": "Download",
+      "url": "https://jpct.de/robombs.game/download/"
+    },
+    {
+      "label": "Feed",
+      "url": "https://jpct.de/robombs.game/feed/"
+    }
+  ]
+}

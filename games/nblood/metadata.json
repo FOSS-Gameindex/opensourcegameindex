@@ -1,0 +1,34 @@
+{
+  "game_id": "nblood",
+  "title": "NBlood",
+  "description": "An open-source Build engine port with LAN and online multiplayer.",
+  "publisher": "NBlood Project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://nukeykt.retrohost.net/",
+  "community_url": "https://github.com/NBlood/NBlood",
+  "download_url": "https://github.com/NBlood/NBlood",
+  "media": {
+    "image_url": "https://opengraph.githubassets.com/96718b708d9ba35d2ecf1304d313f26cc609ee41d443316ffa55c12f78d301d5/NBlood/NBlood",
+    "image_source_url": "https://github.com/NBlood/NBlood",
+    "video_url": "https://www.youtube.com/watch?v=Ocs-UDivylA",
+    "video_title": "NBlood gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://nukeykt.retrohost.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/NBlood/NBlood"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/NBlood/NBlood"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "game_id": "q2pro",
+  "title": "Q2PRO",
+  "description": "An enhanced Quake II client and server with LAN support and modern network protocols.",
+  "publisher": "q2pro project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://sourceforge.net/projects/q2pro/",
+  "community_url": "https://sourceforge.net/projects/q2pro/support",
+  "download_url": "https://sourceforge.net/projects/q2pro/",
+  "links": [
+    {
+      "label": "SourceForge",
+      "url": "https://sourceforge.net/projects/q2pro/"
+    },
+    {
+      "label": "Support",
+      "url": "https://sourceforge.net/projects/q2pro/support"
+    },
+    {
+      "label": "Mailing lists",
+      "url": "https://sourceforge.net/p/q2pro/mailman/"
+    }
+  ]
+}

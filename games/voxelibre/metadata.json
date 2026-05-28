@@ -1,0 +1,30 @@
+{
+  "game_id": "voxelibre",
+  "title": "VoxeLibre",
+  "description": "A voxel-based sandbox game for Luanti with LAN and online multiplayer support.",
+  "publisher": "VoxeLibre Project",
+  "genre": "Sandbox",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://content.luanti.org/packages/Wuzzy/mineclone2/",
+  "community_url": "https://content.luanti.org/packages/Wuzzy/mineclone2/",
+  "download_url": "https://git.minetest.land/VoxeLibre/VoxeLibre",
+  "media": {
+    "image_url": "https://content.luanti.org/thumbnails/3/55ab4fc1b5.png",
+    "image_source_url": "https://content.luanti.org/packages/Wuzzy/mineclone2/",
+    "video_url": "https://www.youtube.com/watch?v=F-Lai53_Ry4",
+    "video_title": "VoxeLibre gameplay video"
+  },
+  "links": [
+    {
+      "label": "Package page",
+      "url": "https://content.luanti.org/packages/Wuzzy/mineclone2/"
+    },
+    {
+      "label": "Source",
+      "url": "https://git.minetest.land/VoxeLibre/VoxeLibre"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://content.luanti.org/packages/MisterE/blockbomber/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://gitlab.com/blocknerd-games/blockbomber"
+    },
+    {
+      "label": "Feed",
+      "url": "https://gitlab.com/blocknerd-games/blockbomber.atom"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://berserker.quakegate.ru/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/UCyborg/BerserkerQuake2"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/UCyborg/BerserkerQuake2/releases"
+    }
+  ]
+}

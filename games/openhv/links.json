@@ -1,0 +1,12 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://openhv.net"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/OpenHV/OpenHV"
+    }
+  ]
+}

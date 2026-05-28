@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Source archive",
+      "url": "https://archive.org/details/Heretic_source"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/OpenSourcedGames/Heretic"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/OpenSourcedGames/Heretic"
+    }
+  ]
+}

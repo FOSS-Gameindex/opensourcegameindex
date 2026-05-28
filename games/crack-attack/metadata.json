@@ -1,0 +1,35 @@
+{
+  "game_id": "crack-attack",
+  "title": "Crack Attack!",
+  "description": "A fast-paced open-source puzzle game with online multiplayer support.",
+  "publisher": "Crack Attack! Project",
+  "genre": "Puzzle",
+  "lan_supported": true,
+  "max_players": "2",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.nongnu.org/crack-attack/",
+  "community_url": "https://savannah.nongnu.org/projects/crack-attack/",
+  "download_url": "https://www.nongnu.org/crack-attack/",
+  "media": {
+    "image_url": "https://www.nongnu.org/crack-attack/gui-1.1.14-normal.png",
+    "image_source_url": "https://www.nongnu.org/crack-attack/screenshots.html",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.nongnu.org/crack-attack/"
+    },
+    {
+      "label": "Screenshots",
+      "url": "https://www.nongnu.org/crack-attack/screenshots.html"
+    },
+    {
+      "label": "Source",
+      "url": "https://savannah.nongnu.org/projects/crack-attack/"
+    }
+  ]
+}

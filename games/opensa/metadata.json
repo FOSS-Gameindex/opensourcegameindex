@@ -1,0 +1,34 @@
+{
+  "game_id": "opensa",
+  "title": "OpenSA",
+  "description": "An open-source Swarm Assault remake with LAN and online multiplayer.",
+  "publisher": "OpenSA Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.moddb.com/mods/opensa/",
+  "community_url": "https://github.com/Dzierzan/OpenSA",
+  "download_url": "https://github.com/Dzierzan/OpenSA",
+  "media": {
+    "image_url": "https://media.moddb.com/images/mods/1/42/41459/OpenRA-2020-05-31T094932231Z.png",
+    "image_source_url": "https://www.moddb.com/mods/opensa/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.moddb.com/mods/opensa/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/Dzierzan/OpenSA"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/Dzierzan/OpenSA"
+    }
+  ]
+}

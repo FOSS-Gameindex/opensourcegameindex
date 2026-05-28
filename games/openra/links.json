@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.openra.net/"
+    },
+    {
+      "label": "About",
+      "url": "https://www.openra.net/about/"
+    },
+    {
+      "label": "Download",
+      "url": "https://www.openra.net/download/"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "game_id": "clanbomber",
+  "title": "ClanBomber",
+  "description": "A Bomberman-style open-source game for local multiplayer sessions.",
+  "publisher": "ClanBomber Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "max_players": "8",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.nongnu.org/clanbomber/",
+  "community_url": "https://savannah.nongnu.org/projects/clanbomber/",
+  "download_url": "https://download.savannah.nongnu.org/releases/clanbomber/",
+  "media": {
+    "image_url": "https://www.nongnu.org/clanbomber/images/screenshots/screenshot_001.jpeg",
+    "image_source_url": "https://www.nongnu.org/clanbomber/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.nongnu.org/clanbomber/"
+    },
+    {
+      "label": "Savannah",
+      "url": "https://savannah.nongnu.org/projects/clanbomber/"
+    },
+    {
+      "label": "Source",
+      "url": "https://download.savannah.nongnu.org/releases/clanbomber/"
+    }
+  ]
+}

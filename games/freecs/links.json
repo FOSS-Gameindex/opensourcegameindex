@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.frag-net.com/projects.html"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/eukara/freecs"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/eukara/freecs"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "SourceForge",
+      "url": "https://sourceforge.net/projects/q2pro/"
+    },
+    {
+      "label": "Support",
+      "url": "https://sourceforge.net/projects/q2pro/support"
+    },
+    {
+      "label": "Mailing lists",
+      "url": "https://sourceforge.net/p/q2pro/mailman/"
+    }
+  ]
+}
