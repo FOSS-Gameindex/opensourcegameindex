@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.hedgewars.org/about.html"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/hedgewars/hw"
+    },
+    {
+      "label": "Network guide",
+      "url": "https://hedgewars.org/wiki/Network_Game_Guide"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.teeworlds.com/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/teeworlds/teeworlds"
+    }
+  ]
+}

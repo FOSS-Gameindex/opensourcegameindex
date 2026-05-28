@@ -1,0 +1,33 @@
+{
+  "game_id": "openttd",
+  "title": "OpenTTD",
+  "description": "An open-source transport simulation with stable multiplayer for LAN and Internet play.",
+  "publisher": "OpenTTD Developers",
+  "genre": "Simulation",
+  "lan_supported": true,
+  "max_players": "255",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.openttd.org/about",
+  "community_url": "https://wiki.openttd.org/en/Community/Multiplayer%20cheating",
+  "download_url": "https://www.openttd.org/downloads/openttd-releases/latest",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.openttd.org/about"
+    },
+    {
+      "label": "Download",
+      "url": "https://www.openttd.org/downloads/openttd-releases/latest"
+    },
+    {
+      "label": "Multiplayer docs",
+      "url": "https://wiki.openttd.org/en/Community/Multiplayer%20cheating"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/OpenTTD/OpenTTD"
+    }
+  ]
+}

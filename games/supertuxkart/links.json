@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://supertuxkart.net/Discover"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/supertuxkart/stk-code"
+    },
+    {
+      "label": "Addons",
+      "url": "https://github.com/supertuxkart/stk-addons"
+    }
+  ]
+}
