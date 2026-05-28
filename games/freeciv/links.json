@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.freeciv.org/"
+    },
+    {
+      "label": "Download",
+      "url": "https://play.freeciv.org/download.html"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/freeciv/freeciv"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "game_id": "xonotic",
+  "title": "Xonotic",
+  "description": "A fast arena shooter with listen servers, dedicated servers, and local multiplayer on a private network.",
+  "publisher": "Xonotic Project",
+  "genre": "Arena shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://xonotic.org/",
+  "community_url": "https://xonotic.org/faq/",
+  "download_url": "https://xonotic.org/download/",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://xonotic.org/"
+    },
+    {
+      "label": "FAQ",
+      "url": "https://xonotic.org/faq/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/xonotic/xonotic"
+    }
+  ]
+}

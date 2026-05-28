@@ -1,0 +1,32 @@
+{
+  "game_id": "freeciv",
+  "title": "Freeciv",
+  "description": "An open-source empire-building strategy game with local network and online multiplayer.",
+  "publisher": "The Freeciv Project",
+  "genre": "Strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.freeciv.org/",
+  "community_url": "https://forum.freeciv.org/f/viewtopic.php?t=73501",
+  "download_url": "https://play.freeciv.org/download.html",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.freeciv.org/"
+    },
+    {
+      "label": "Download",
+      "url": "https://play.freeciv.org/download.html"
+    },
+    {
+      "label": "LAN forum thread",
+      "url": "https://forum.freeciv.org/f/viewtopic.php?t=73501"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/freeciv/freeciv"
+    }
+  ]
+}
