@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.wesnoth.org/"
+    },
+    {
+      "label": "Multiplayer wiki",
+      "url": "https://wiki.wesnoth.org/MultiplayerServers"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/wesnoth/wesnoth"
+    }
+  ]
+}

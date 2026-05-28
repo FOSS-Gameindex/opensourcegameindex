@@ -1,0 +1,28 @@
+{
+  "game_id": "openarena",
+  "title": "OpenArena",
+  "description": "An open-source Quake-style multiplayer FPS that can be hosted on private or local servers.",
+  "publisher": "OpenArena Team",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://openarena.ws/about.html",
+  "community_url": "https://openarena.ws/board/",
+  "download_url": "https://openarena.ws/download.php",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://openarena.ws/about.html"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://openarena.ws/download.php"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/OpenArena/engine"
+    }
+  ]
+}

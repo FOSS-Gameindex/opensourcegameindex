@@ -1,0 +1,28 @@
+{
+  "game_id": "wesnoth",
+  "title": "Battle for Wesnoth",
+  "description": "An open-source fantasy strategy game with online, hot-seat, and local network multiplayer.",
+  "publisher": "The Battle for Wesnoth Project",
+  "genre": "Turn-based strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.wesnoth.org/",
+  "community_url": "https://wiki.wesnoth.org/MultiplayerServers",
+  "download_url": "https://wiki.wesnoth.org/Download",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.wesnoth.org/"
+    },
+    {
+      "label": "Multiplayer wiki",
+      "url": "https://wiki.wesnoth.org/MultiplayerServers"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/wesnoth/wesnoth"
+    }
+  ]
+}
