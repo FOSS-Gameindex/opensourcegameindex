@@ -12,6 +12,12 @@
   "website_url": "https://www.teeworlds.com/",
   "community_url": "https://github.com/teeworlds/teeworlds",
   "download_url": "https://www.teeworlds.com/",
+  "media": {
+    "image_url": "https://www.teeworlds.com/images/screens/thumbs/screenshot_winter.png",
+    "image_source_url": "https://www.teeworlds.com/",
+    "video_url": "https://www.youtube.com/watch?v=lQv7Liunkcc",
+    "video_title": "Teeworlds trailer map making video"
+  },
   "links": [
     {
       "label": "Website",

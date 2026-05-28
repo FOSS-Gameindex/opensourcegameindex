@@ -12,6 +12,12 @@
   "website_url": "https://www.openttd.org/about",
   "community_url": "https://wiki.openttd.org/en/Community/Multiplayer%20cheating",
   "download_url": "https://www.openttd.org/downloads/openttd-releases/latest",
+  "media": {
+    "image_url": "https://wiki.openttd.org/uploads/en/Manual/Dockscreenshot.png",
+    "image_source_url": "https://wiki.openttd.org/File/en/Manual/Dockscreenshot.png",
+    "video_url": "https://www.youtube.com/watch?v=M1YlJ9J7_Jo",
+    "video_title": "OpenTTD gameplay video"
+  },
   "links": [
     {
       "label": "Website",

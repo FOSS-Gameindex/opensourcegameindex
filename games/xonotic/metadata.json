@@ -11,6 +11,12 @@
   "website_url": "https://xonotic.org/",
   "community_url": "https://xonotic.org/faq/",
   "download_url": "https://xonotic.org/download/",
+  "media": {
+    "image_url": "https://xonotic.org/m/uploads/2011/09/stormkeep-keyhunt-3-200x200.jpg",
+    "image_source_url": "https://xonotic.org/images/",
+    "video_url": "https://www.youtube.com/watch?v=9Zsp1ahGgWE",
+    "video_title": "Xonotic trailer"
+  },
   "links": [
     {
       "label": "Website",

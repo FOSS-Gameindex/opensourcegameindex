@@ -12,6 +12,12 @@
   "website_url": "https://supertuxkart.net/Discover",
   "community_url": "https://supertuxkart.net/STK_Evolution_FAQ",
   "download_url": "https://github.com/supertuxkart/stk-code/releases",
+  "media": {
+    "image_url": "https://www.supertuxkart.net/assets/gallery/STK1.0_2.jpg",
+    "image_source_url": "https://www.supertuxkart.net/History_of_SuperTuxKart",
+    "video_url": "https://www.youtube.com/watch?v=tzTJgzzymBs",
+    "video_title": "SuperTuxKart release video"
+  },
   "links": [
     {
       "label": "Website",
