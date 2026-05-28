@@ -16,6 +16,15 @@ def load_json(path: Path) -> dict:
     return raw
 
 
+def load_optional_json(path: Path) -> dict:
+    if not path.is_file():
+        return {}
+    try:
+        return load_json(path)
+    except (OSError, ValueError):
+        return {}
+
+
 def localize_text(raw: object, locale: str) -> str:
     if isinstance(raw, dict):
         preferred = str(raw.get(locale, "")).strip()
@@ -74,15 +83,31 @@ def runtime_bucket(values: list[str]) -> str:
 
 
 def build_index(root: Path) -> dict:
+    source_config = load_optional_json(root / "source.json")
+    source_seed_device_ids: list[str] = []
+    if isinstance(source_config.get("seed_device_ids"), list):
+        for value in source_config.get("seed_device_ids", []):
+            text = str(value).strip()
+            if text and text not in source_seed_device_ids:
+                source_seed_device_ids.append(text)
     games = []
     for game_dir in sorted(p for p in (root / "games").iterdir() if p.is_dir()):
         metadata = load_json(game_dir / "metadata.json")
+        payload = load_optional_json(game_dir / "payload.json")
         links = metadata.get("links", [])
         lan_supported = metadata.get("lan_supported")
         player_count = parse_player_count(metadata.get("max_players"))
         runtime_support = normalize_runtime_support(
             metadata.get("runtime_support", metadata.get("supported_runtimes"))
         )
+        game_seed_device_ids: list[str] = []
+        if isinstance(payload.get("syncthing_seed_device_ids"), list):
+            for value in payload.get("syncthing_seed_device_ids", []):
+                text = str(value).strip()
+                if text and text not in game_seed_device_ids:
+                    game_seed_device_ids.append(text)
+        if not game_seed_device_ids:
+            game_seed_device_ids = list(source_seed_device_ids)
         games.append(
             {
                 "game_id": metadata.get("game_id", game_dir.name),
@@ -97,6 +122,10 @@ def build_index(root: Path) -> dict:
                 "player_bucket": player_bucket(player_count),
                 "runtime_support": runtime_support,
                 "runtime_bucket": runtime_bucket(runtime_support),
+                "syncthing_folder": str(
+                    payload.get("syncthing_folder", metadata.get("syncthing_folder", ""))
+                ).strip(),
+                "syncthing_seed_device_ids": game_seed_device_ids,
                 "page_url": f"games/{game_dir.name}/index.html",
                 "website_url": metadata.get("website_url", ""),
                 "community_url": metadata.get("community_url", ""),
@@ -113,6 +142,8 @@ def build_index(root: Path) -> dict:
             "repo_url": "",
             "branch": "",
             "commit_sha": "",
+            "folder_id": str(source_config.get("folder_id", "")).strip(),
+            "seed_device_ids": source_seed_device_ids,
         },
         "games": games,
     }

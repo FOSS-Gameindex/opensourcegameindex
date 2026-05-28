@@ -1,4 +1,4 @@
-# Open Source Games Index
+# Open Source Game Index
 
 Public, reviewable metadata for open-source games.
 
@@ -10,6 +10,7 @@ What this repository provides:
 - machine-readable metadata for each game
 - a generated GitHub Pages site for browsing the catalog
 - a root `index.json` for tooling integrations
+- optional `source.json` metadata for the public index mirror, including Syncthing folder and seed device IDs
 
 The repo can contain a mix of:
 
@@ -21,6 +22,8 @@ The repo can contain a mix of:
 The `lan_supported` flag is what lets LLNG separate the LAN-relevant subset from the broader catalog.
 
 The generated site visually marks LAN-capable titles with a badge and provides filters for LAN-only browsing, player-count ranges, and runtime support.
+
+For offline peer-to-peer distribution, the generated `index.json` can carry `source.folder_id` and `source.seed_device_ids`, while individual games can carry `syncthing_folder` and `syncthing_seed_device_ids` in their metadata or payload files.
 
 ## Workflow
 
