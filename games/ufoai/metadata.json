@@ -1,0 +1,35 @@
+{
+  "game_id": "ufoai",
+  "title": "UFO: Alien Invasion",
+  "description": "An open-source tactical strategy game with LAN and online multiplayer.",
+  "publisher": "UFO: Alien Invasion Project",
+  "genre": "Tactical strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://ufoai.org/wiki/News",
+  "community_url": "https://sourceforge.net/projects/ufoai/",
+  "download_url": "https://sourceforge.net/projects/ufoai/",
+  "media": {
+    "image_url": "https://a.fsdn.com/con/app/proj/ufoai/screenshots/294939.jpg/245/183/1",
+    "image_source_url": "https://sourceforge.net/projects/ufoai/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://ufoai.org/wiki/News"
+    },
+    {
+      "label": "Repository",
+      "url": "https://sourceforge.net/projects/ufoai/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://sourceforge.net/projects/ufoai/"
+    }
+  ],
+  "category": "Strategy"
+}

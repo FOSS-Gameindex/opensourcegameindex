@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://builds.openjk.org/"
+    },
+    {
+      "label": "Community",
+      "url": "https://jkhub.org/wiki/OpenJK"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://builds.openjk.org/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/JACoders/OpenJK"
+    }
+  ]
+}

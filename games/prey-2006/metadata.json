@@ -1,0 +1,35 @@
+{
+  "game_id": "prey-2006",
+  "title": "Prey 2006: A Talon Brave Game",
+  "description": "An open-source Prey 2006 source integration with LAN, online, and co-op multiplayer.",
+  "publisher": "Prey 2006 Project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://krispy-the-goat.itch.io/prey-2006",
+  "community_url": "https://github.com/FriskTheFallenHuman/Prey2006",
+  "download_url": "https://github.com/FriskTheFallenHuman/Prey2006",
+  "media": {
+    "image_url": "https://media.moddb.com/images/mods/1/70/69779/prey06_kzNxwKWBaZ.jpg",
+    "image_source_url": "https://github.com/FriskTheFallenHuman/Prey2006",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://krispy-the-goat.itch.io/prey-2006"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/FriskTheFallenHuman/Prey2006"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/FriskTheFallenHuman/Prey2006"
+    }
+  ],
+  "category": "Shooter"
+}

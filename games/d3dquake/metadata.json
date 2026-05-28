@@ -1,0 +1,35 @@
+{
+  "game_id": "d3dquake",
+  "title": "D3DQuake",
+  "description": "A Direct3D version of Quake and QuakeWorld with LAN-capable multiplayer.",
+  "publisher": "D3DQuake project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "windows"
+  ],
+  "website_url": "https://dxquake.sourceforge.net/",
+  "community_url": "https://sourceforge.net/projects/direct3dquake/",
+  "download_url": "https://sourceforge.net/projects/direct3dquake/",
+  "media": {
+    "image_url": "media/cover.svg",
+    "image_source_url": "https://sourceforge.net/projects/direct3dquake/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://dxquake.sourceforge.net/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://sourceforge.net/projects/direct3dquake/"
+    },
+    {
+      "label": "Source",
+      "url": "https://sourceforge.net/projects/direct3dquake/"
+    }
+  ],
+  "category": "Shooter"
+}

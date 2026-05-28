@@ -1,0 +1,35 @@
+{
+  "game_id": "opennox",
+  "title": "OpenNox",
+  "description": "An open-source Nox engine remake with LAN and online multiplayer.",
+  "publisher": "OpenNox Project",
+  "genre": "Action RPG",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://noxworld-dev.github.io/opennox-docs/",
+  "community_url": "https://github.com/noxworld-dev/opennox",
+  "download_url": "https://github.com/noxworld-dev/opennox/releases",
+  "media": {
+    "image_url": "https://raw.githubusercontent.com/noxworld-dev/opennox/main/docs/images/logo.png",
+    "image_source_url": "https://github.com/noxworld-dev/opennox",
+    "video_url": "https://www.youtube.com/watch?v=K7yqrxeZQVA",
+    "video_title": "OpenNox trailer"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://noxworld-dev.github.io/opennox-docs/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/noxworld-dev/opennox"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/noxworld-dev/opennox/releases"
+    }
+  ],
+  "category": "RPG"
+}

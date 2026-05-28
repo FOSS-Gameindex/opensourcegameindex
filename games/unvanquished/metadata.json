@@ -11,6 +11,12 @@
   "website_url": "https://unvanquished.net/",
   "community_url": "https://wiki.unvanquished.net/wiki/LocalGames",
   "download_url": "https://unvanquished.net/download/",
+  "media": {
+    "image_url": "media/cover.png",
+    "image_source_url": "https://github.com/Unvanquished/Unvanquished",
+    "video_url": "",
+    "video_title": ""
+  },
   "links": [
     {
       "label": "Website",
@@ -24,5 +30,6 @@
       "label": "Server running",
       "url": "https://wiki.unvanquished.net/wiki/Server/Running"
     }
-  ]
+  ],
+  "category": "Shooter"
 }

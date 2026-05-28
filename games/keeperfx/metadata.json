@@ -1,0 +1,35 @@
+{
+  "game_id": "keeperfx",
+  "title": "KeeperFX",
+  "description": "An open-source Dungeon Keeper remake with local, online, and LAN multiplayer.",
+  "publisher": "KeeperFX Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://keeperfx.net",
+  "community_url": "https://github.com/dkfans/keeperfx",
+  "download_url": "https://github.com/dkfans/keeperfx",
+  "media": {
+    "image_url": "https://keeperfx.net/screenshots/keeperfx-far-zoom.jpg",
+    "image_source_url": "https://keeperfx.net",
+    "video_url": "https://www.youtube.com/watch?v=JwDdLynZPag",
+    "video_title": "KeeperFX gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://keeperfx.net"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/dkfans/keeperfx"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/dkfans/keeperfx"
+    }
+  ],
+  "category": "Strategy"
+}

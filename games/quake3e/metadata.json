@@ -1,0 +1,31 @@
+{
+  "game_id": "quake3e",
+  "title": "Quake3e",
+  "description": "An open-source Quake III Arena engine fork with competitive, LAN, and local multiplayer support.",
+  "publisher": "Quake3e Project",
+  "genre": "First-person shooter engine",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://github.com/ec-/Quake3e",
+  "community_url": "https://github.com/ec-/Quake3e",
+  "download_url": "https://github.com/ec-/Quake3e/releases",
+  "media": {
+    "image_url": "https://opengraph.githubassets.com/59752108a34479c38c8108342e7df3d7644deb8f4975c4e4799c55efb6d1dafc/ec-/Quake3e",
+    "image_source_url": "https://github.com/ec-/Quake3e",
+    "video_url": "https://www.youtube.com/watch?v=hkvmwMo7Sto",
+    "video_title": "Quake3e trailer"
+  },
+  "links": [
+    {
+      "label": "Repository",
+      "url": "https://github.com/ec-/Quake3e"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/ec-/Quake3e/releases"
+    }
+  ],
+  "category": "Shooter"
+}

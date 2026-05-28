@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://ufoai.org/wiki/News"
+    },
+    {
+      "label": "Repository",
+      "url": "https://sourceforge.net/projects/ufoai/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://sourceforge.net/projects/ufoai/"
+    }
+  ]
+}

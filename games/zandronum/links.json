@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://zandronum.com"
+    },
+    {
+      "label": "Wiki",
+      "url": "https://wiki.zandronum.com"
+    },
+    {
+      "label": "Download",
+      "url": "https://zandronum.com/download"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/TorrSamaho/zandronum"
+    }
+  ]
+}

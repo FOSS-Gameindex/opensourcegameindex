@@ -1,0 +1,35 @@
+{
+  "game_id": "freehl",
+  "title": "FreeHL",
+  "description": "An open-source Half-Life reimplementation with LAN and online multiplayer.",
+  "publisher": "FreeHL Project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://github.com/eukara/freehl",
+  "community_url": "https://github.com/eukara/freehl",
+  "download_url": "https://github.com/eukara/freehl",
+  "media": {
+    "image_url": "https://github.com/eukara/freehl/raw/master/img/preview1.jpg",
+    "image_source_url": "https://github.com/eukara/freehl",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://github.com/eukara/freehl"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/eukara/freehl"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/eukara/freehl"
+    }
+  ],
+  "category": "Shooter"
+}

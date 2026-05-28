@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://hhexen.sourceforge.net/hheretic.html"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/sezero/hheretic"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/sezero/hheretic/releases"
+    }
+  ]
+}

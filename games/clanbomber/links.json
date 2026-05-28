@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.nongnu.org/clanbomber/"
+    },
+    {
+      "label": "Savannah",
+      "url": "https://savannah.nongnu.org/projects/clanbomber/"
+    },
+    {
+      "label": "Source",
+      "url": "https://download.savannah.nongnu.org/releases/clanbomber/"
+    }
+  ]
+}

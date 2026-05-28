@@ -1,0 +1,35 @@
+{
+  "game_id": "bombermaaan",
+  "title": "Bombermaaan",
+  "description": "An open-source Bomberman-style game with local competitive multiplayer.",
+  "publisher": "Bombermaaan Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://bombermaaan.sourceforge.net/",
+  "community_url": "https://github.com/bjaraujo/Bombermaaan",
+  "download_url": "https://github.com/bjaraujo/Bombermaaan",
+  "media": {
+    "image_url": "https://bombermaaan.sourceforge.net/screenshots/screen1.png",
+    "image_source_url": "https://bombermaaan.sourceforge.net/screenshots/",
+    "video_url": "https://www.youtube.com/watch?v=SgVdsrDAUwA",
+    "video_title": "Bombermaaan gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://bombermaaan.sourceforge.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/bjaraujo/Bombermaaan"
+    },
+    {
+      "label": "Screenshots",
+      "url": "https://bombermaaan.sourceforge.net/screenshots/"
+    }
+  ],
+  "category": "Action"
+}

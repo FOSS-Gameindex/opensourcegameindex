@@ -1,0 +1,35 @@
+{
+  "game_id": "hheretic",
+  "title": "HHeretic",
+  "description": "An open-source Heretic port with LAN multiplayer support.",
+  "publisher": "HHeretic Project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://hhexen.sourceforge.net/hheretic.html",
+  "community_url": "https://github.com/sezero/hheretic",
+  "download_url": "https://github.com/sezero/hheretic/releases",
+  "media": {
+    "image_url": "https://hhexen.sourceforge.net/images/hrtic01.jpg",
+    "image_source_url": "https://hhexen.sourceforge.net/hheretic.html",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://hhexen.sourceforge.net/hheretic.html"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/sezero/hheretic"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/sezero/hheretic/releases"
+    }
+  ],
+  "category": "Shooter"
+}

@@ -1,0 +1,35 @@
+{
+  "game_id": "hexen",
+  "title": "Hexen",
+  "description": "Official source release of Hexen with LAN multiplayer support.",
+  "publisher": "id Software",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://archive.org/details/Hexen_source",
+  "community_url": "https://github.com/OpenSourcedGames/Hexen",
+  "download_url": "https://github.com/OpenSourcedGames/Hexen",
+  "media": {
+    "image_url": "https://avatars.githubusercontent.com/u/4376404?v=4",
+    "image_source_url": "https://github.com/OpenSourcedGames/Hexen",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Source archive",
+      "url": "https://archive.org/details/Hexen_source"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/OpenSourcedGames/Hexen"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/OpenSourcedGames/Hexen"
+    }
+  ],
+  "category": "Shooter"
+}

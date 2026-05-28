@@ -1,0 +1,35 @@
+{
+  "game_id": "redneckgdx",
+  "title": "RedneckGDX",
+  "description": "An open-source Redneck Rampage engine port with online, LAN, and co-op multiplayer.",
+  "publisher": "RedneckGDX Project",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "http://m210.duke4.net/",
+  "community_url": "https://gitlab.com/m210/RedneckGDX",
+  "download_url": "https://gitlab.com/m210/RedneckGDX",
+  "media": {
+    "image_url": "https://gitlab.com/uploads/-/system/project/avatar/8224377/RR256.png",
+    "image_source_url": "https://gitlab.com/m210/RedneckGDX",
+    "video_url": "https://www.youtube.com/watch?v=0w_LI7LVb3s",
+    "video_title": "RedneckGDX gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "http://m210.duke4.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://gitlab.com/m210/RedneckGDX"
+    },
+    {
+      "label": "Source",
+      "url": "https://gitlab.com/m210/RedneckGDX"
+    }
+  ],
+  "category": "Shooter"
+}

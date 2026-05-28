@@ -1,0 +1,31 @@
+{
+  "game_id": "zed-online",
+  "title": "Zed Online",
+  "description": "An open-source multiplayer strategy game with LAN and online play.",
+  "publisher": "Zed Online Project",
+  "genre": "Strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://zzone.lewe.com/zed-online-game/",
+  "community_url": "https://sourceforge.net/projects/zedonline/",
+  "download_url": "https://sourceforge.net/projects/zedonline/",
+  "media": {
+    "image_url": "https://a.fsdn.com/con/app/proj/zedonline/screenshots/Screenshot%20%288%29.png/245/183/1",
+    "image_source_url": "https://zzone.lewe.com/zed-online-game/",
+    "video_url": "https://www.youtube.com/watch?v=RKmKpTe-gVo",
+    "video_title": "Zed Online trailer"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://zzone.lewe.com/zed-online-game/"
+    },
+    {
+      "label": "SourceForge",
+      "url": "https://sourceforge.net/projects/zedonline/"
+    }
+  ],
+  "category": "Strategy"
+}

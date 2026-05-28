@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.openclonk.org/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/openclonk/openclonk"
+    },
+    {
+      "label": "Wiki",
+      "url": "https://wiki.openclonk.org/"
+    }
+  ]
+}

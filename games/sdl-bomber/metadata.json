@@ -1,0 +1,35 @@
+{
+  "game_id": "sdl-bomber",
+  "title": "SDL Bomber",
+  "description": "An open-source Bomberman-style remake with local multiplayer support.",
+  "publisher": "SDL Bomber Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.linuxmotors.com/linux/SDL_bomber/",
+  "community_url": "https://www.linuxmotors.com/linux/SDL_bomber/downloads/",
+  "download_url": "https://www.linuxmotors.com/linux/SDL_bomber/downloads/",
+  "media": {
+    "image_url": "https://www.linuxmotors.com/linux/SDL_bomber/bomber.gif",
+    "image_source_url": "https://www.linuxmotors.com/linux/SDL_bomber/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.linuxmotors.com/linux/SDL_bomber/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://www.linuxmotors.com/linux/SDL_bomber/downloads/"
+    },
+    {
+      "label": "Source",
+      "url": "https://www.linuxmotors.com/linux/SDL_bomber/downloads/"
+    }
+  ],
+  "category": "Action"
+}

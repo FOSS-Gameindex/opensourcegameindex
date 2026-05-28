@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://tremulous.net"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/darklegion/tremulous"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/darklegion/tremulous/releases"
+    }
+  ]
+}

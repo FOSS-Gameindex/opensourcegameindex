@@ -1,0 +1,35 @@
+{
+  "game_id": "bombic2",
+  "title": "Bombic2",
+  "description": "An open-source Bomberman-style game with cooperative, split-screen, and local competitive multiplayer.",
+  "publisher": "Bombic2 Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "http://bombic2.sourceforge.net/",
+  "community_url": "https://sourceforge.net/projects/bombic2/",
+  "download_url": "https://sourceforge.net/projects/bombic2/",
+  "media": {
+    "image_url": "https://download.tuxfamily.org/sdtraces/BottinHTML/Bottin_0-C_files/5d69afe9ea2eaf63928289c13a72f4e0.jpeg",
+    "image_source_url": "https://download.tuxfamily.org/sdtraces/BottinHTML/Bottin_0-C_files/",
+    "video_url": "https://www.youtube.com/watch?v=11cwnt4MNt4",
+    "video_title": "Bombic2 gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "http://bombic2.sourceforge.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://sourceforge.net/projects/bombic2/"
+    },
+    {
+      "label": "Screenshots",
+      "url": "https://download.tuxfamily.org/sdtraces/BottinHTML/Bottin_0-C_files/"
+    }
+  ],
+  "category": "Action"
+}

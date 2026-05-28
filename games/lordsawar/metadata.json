@@ -1,0 +1,35 @@
+{
+  "game_id": "lordsawar",
+  "title": "LordsAWar!",
+  "description": "An open-source Warlords II clone with LAN and hotseat multiplayer.",
+  "publisher": "LordsAWar! Project",
+  "genre": "Turn-based strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://lordsawar.nongnu.org/",
+  "community_url": "http://savannah.nongnu.org/projects/lordsawar",
+  "download_url": "http://savannah.nongnu.org/projects/lordsawar",
+  "media": {
+    "image_url": "https://lordsawar.nongnu.org/screenshot2.png",
+    "image_source_url": "https://lordsawar.nongnu.org/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://lordsawar.nongnu.org/"
+    },
+    {
+      "label": "Repository",
+      "url": "http://savannah.nongnu.org/projects/lordsawar"
+    },
+    {
+      "label": "Feed",
+      "url": "https://savannah.nongnu.org/news/atom.php?group=lordsawar"
+    }
+  ],
+  "category": "Strategy"
+}

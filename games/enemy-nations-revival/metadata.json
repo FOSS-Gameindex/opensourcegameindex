@@ -1,0 +1,35 @@
+{
+  "game_id": "enemy-nations-revival",
+  "title": "Enemy Nations Revival",
+  "description": "An open-source revival of Enemy Nations with LAN and online multiplayer.",
+  "publisher": "Enemy Nations Revival Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://groups.google.com/g/enations",
+  "community_url": "https://github.com/EnemyV/EnemyNationsRevival",
+  "download_url": "https://github.com/EnemyV/EnemyNationsRevival/releases",
+  "media": {
+    "image_url": "https://raw.githubusercontent.com/EnemyV/EnemyNationsRevival/master/Enemy_Nations_cover.jpg",
+    "image_source_url": "https://github.com/EnemyV/EnemyNationsRevival/blob/master/Enemy_Nations_cover.jpg",
+    "video_url": "https://www.youtube.com/watch?v=sWHDBbYF9C4",
+    "video_title": "Enemy Nations Revival trailer"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://groups.google.com/g/enations"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/EnemyV/EnemyNationsRevival"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/EnemyV/EnemyNationsRevival/releases"
+    }
+  ],
+  "category": "Strategy"
+}

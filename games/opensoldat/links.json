@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.soldat.pl/en/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/opensoldat/opensoldat"
+    },
+    {
+      "label": "Screenshots",
+      "url": "https://www.soldat.pl/en/screenshots/"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "game_id": "darkflame-universe",
+  "title": "Darkflame Universe",
+  "description": "Server software for LEGO Universe intended for private, local, or LAN-hosted play.",
+  "publisher": "Darkflame Universe Team",
+  "genre": "MMO server",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://darkflameuniverse.org/",
+  "community_url": "https://github.com/DarkflameUniverse/DarkflameServer",
+  "download_url": "https://github.com/DarkflameUniverse/DarkflameServer",
+  "media": {
+    "image_url": "https://pbs.twimg.com/media/E5jL9BvWQAQOeYQ?format=jpg&name=900x900",
+    "image_source_url": "https://darkflameuniverse.org/",
+    "video_url": "https://www.youtube.com/watch?v=ZhzMy-o0ByM",
+    "video_title": "Darkflame Universe overview video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://darkflameuniverse.org/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/DarkflameUniverse/DarkflameServer"
+    }
+  ],
+  "category": "Server"
+}

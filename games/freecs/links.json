@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.icculus.org/~marco/freecs/"
+    },
+    {
+      "label": "Community",
+      "url": "https://forum.freegamedev.net/viewtopic.php?f=22&t=7372"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/eukara/freecs"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/eukara/freecs"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "game_id": "commander-genius",
+  "title": "Commander Genius",
+  "description": "An open-source Commander Keen interpreter with local co-op multiplayer.",
+  "publisher": "Commander Genius Project",
+  "genre": "Platformer",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "http://clonekeenplus.sourceforge.net/",
+  "community_url": "https://gitlab.com/Dringgstein/Commander-Genius",
+  "download_url": "https://gitlab.com/Dringgstein/Commander-Genius/-/releases",
+  "media": {
+    "image_url": "https://clonekeenplus.sourceforge.io/img/multiplayerVoritcon.png",
+    "image_source_url": "http://clonekeenplus.sourceforge.net/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "http://clonekeenplus.sourceforge.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://gitlab.com/Dringgstein/Commander-Genius"
+    },
+    {
+      "label": "Releases",
+      "url": "https://gitlab.com/Dringgstein/Commander-Genius/-/releases"
+    }
+  ],
+  "category": "Platformer"
+}

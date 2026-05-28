@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://xblast.sourceforge.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://sourceforge.net/projects/xblast/"
+    },
+    {
+      "label": "Feed",
+      "url": "https://sourceforge.net/p/xblast/news/feed.atom"
+    }
+  ]
+}

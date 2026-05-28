@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://ballistica.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/efroemling/ballistica"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/efroemling/ballistica/releases"
+    }
+  ]
+}

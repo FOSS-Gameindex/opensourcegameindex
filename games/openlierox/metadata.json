@@ -1,0 +1,31 @@
+{
+  "game_id": "openlierox",
+  "title": "OpenLieroX",
+  "description": "An open-source Liero clone with online, competitive, and LAN multiplayer.",
+  "publisher": "OpenLieroX Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.openlierox.net/",
+  "community_url": "https://github.com/albertz/openlierox",
+  "download_url": "https://github.com/albertz/openlierox",
+  "media": {
+    "image_url": "https://www.openlierox.net/official/screenshots/olx2.png",
+    "image_source_url": "https://www.openlierox.net/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.openlierox.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/albertz/openlierox"
+    }
+  ],
+  "category": "Action"
+}

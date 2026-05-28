@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://cortex-command-community.github.io"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project/releases"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project"
+    }
+  ]
+}

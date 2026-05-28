@@ -1,0 +1,35 @@
+{
+  "game_id": "openra",
+  "title": "OpenRA",
+  "description": "A modern open-source RTS engine rebuilding classic games with LAN and online multiplayer.",
+  "publisher": "OpenRA Developers",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.openra.net/",
+  "community_url": "https://www.openra.net/about/",
+  "download_url": "https://www.openra.net/download/",
+  "media": {
+    "image_url": "https://www.openra.net/images/social.jpg?t=2026-04-30-18-11",
+    "image_source_url": "https://www.openra.net/",
+    "video_url": "https://www.youtube.com/watch?v=ueosN-JFqG0",
+    "video_title": "OpenRA promotional trailer"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.openra.net/"
+    },
+    {
+      "label": "About",
+      "url": "https://www.openra.net/about/"
+    },
+    {
+      "label": "Download",
+      "url": "https://www.openra.net/download/"
+    }
+  ],
+  "category": "Strategy"
+}

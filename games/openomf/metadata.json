@@ -1,0 +1,36 @@
+{
+  "game_id": "openomf",
+  "title": "OpenOMF",
+  "description": "An open-source remake of One Must Fall 2097 with rollback netcode and modern network play.",
+  "publisher": "OpenOMF Project",
+  "genre": "Fighting",
+  "lan_supported": true,
+  "max_players": "2",
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://openomf.org/",
+  "community_url": "https://www.omf2097.com/wiki/doku.php?id=openomf:start",
+  "download_url": "https://github.com/omf2097/openomf/releases",
+  "media": {
+    "image_url": "https://openomf.org/assets/2player.png",
+    "image_source_url": "https://openomf.org/",
+    "video_url": "https://www.youtube.com/watch?v=MOMJdJeTOkM",
+    "video_title": "OpenOMF gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://openomf.org/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/omf2097/openomf"
+    },
+    {
+      "label": "Wiki",
+      "url": "http://www.omf2097.com/wiki/doku.php?id=openomf:start"
+    }
+  ],
+  "category": "Fighting"
+}

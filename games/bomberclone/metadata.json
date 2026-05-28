@@ -1,0 +1,31 @@
+{
+  "game_id": "bomberclone",
+  "title": "Bomberclone",
+  "description": "An open-source Bomberman clone with LAN and online multiplayer support.",
+  "publisher": "Bomberclone Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.bomberclone.de/",
+  "community_url": "https://steffen.gulpe.de/gitea/steffen/bomberclone",
+  "download_url": "https://steffen.gulpe.de/gitea/steffen/bomberclone",
+  "media": {
+    "image_url": "https://www.bomberclone.de/screenshots/0.11.3_playermenu.jpg",
+    "image_source_url": "https://www.bomberclone.de/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.bomberclone.de/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://steffen.gulpe.de/gitea/steffen/bomberclone"
+    }
+  ],
+  "category": "Action"
+}

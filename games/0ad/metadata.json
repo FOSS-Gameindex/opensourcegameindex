@@ -1,0 +1,35 @@
+{
+  "game_id": "0ad",
+  "title": "0 A.D.",
+  "description": "A free, open-source historical real-time strategy game with LAN and online multiplayer.",
+  "publisher": "Wildfire Games",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://play0ad.com/",
+  "community_url": "https://play0ad.com/game-info/features/",
+  "download_url": "https://play0ad.com/download/",
+  "media": {
+    "image_url": "https://play0ad.com/wp-content/uploads/2022/09/79792889_481209609204551_4215416933945704448_n.jpg",
+    "image_source_url": "https://play0ad.com/",
+    "video_url": "https://videos.pair2jeux.tube/videos/embed/7abc7333-bd52-46d0-bab8-15901e64f052",
+    "video_title": "0 A.D. Empires Ascendant trailer"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://play0ad.com/"
+    },
+    {
+      "label": "Features",
+      "url": "https://play0ad.com/game-info/features/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://play0ad.com/download/"
+    }
+  ],
+  "category": "Strategy"
+}

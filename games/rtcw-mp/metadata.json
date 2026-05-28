@@ -1,0 +1,31 @@
+{
+  "game_id": "rtcw-mp",
+  "title": "Return to Castle Wolfenstein Multiplayer",
+  "description": "The GPL source release of Return to Castle Wolfenstein's multiplayer component with LAN and co-op modes.",
+  "publisher": "id Software",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://github.com/id-Software/RTCW-MP",
+  "community_url": "https://github.com/id-Software/RTCW-MP",
+  "download_url": "https://github.com/id-Software/RTCW-MP",
+  "media": {
+    "image_url": "https://opengraph.githubassets.com/97532a4a3d7a7d5d02a66bfddb82a1d028a65095e08b1d6b1d103f951b606072/id-Software/RTCW-MP",
+    "image_source_url": "https://github.com/id-Software/RTCW-MP",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Repository",
+      "url": "https://github.com/id-Software/RTCW-MP"
+    },
+    {
+      "label": "Source release",
+      "url": "https://web.archive.org/web/20131210051806/http://www.shacknews.com/file/19981/return-to-castle-wolfenstein-multiplayer-gpl-source-code"
+    }
+  ],
+  "category": "Shooter"
+}

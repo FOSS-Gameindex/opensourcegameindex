@@ -1,0 +1,35 @@
+{
+  "game_id": "wargus",
+  "title": "Wargus",
+  "description": "An open-source Warcraft II mod and engine stack with LAN and online multiplayer.",
+  "publisher": "Wargus Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://stratagus.com",
+  "community_url": "https://github.com/Wargus/wargus",
+  "download_url": "https://github.com/Wargus/wargus",
+  "media": {
+    "image_url": "https://raw.githubusercontent.com/Wargus/wargus/master/ico_alt.svg",
+    "image_source_url": "https://github.com/Wargus/wargus",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://stratagus.com"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/Wargus/wargus"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/Wargus/wargus"
+    }
+  ],
+  "category": "Strategy"
+}

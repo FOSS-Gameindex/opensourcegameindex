@@ -1,0 +1,31 @@
+{
+  "game_id": "commander-wars",
+  "title": "Commander Wars",
+  "description": "An open-source turn-based strategy game with LAN and online multiplayer.",
+  "publisher": "Commander Wars Project",
+  "genre": "Turn-based strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://github.com/Robosturm/Commander_Wars",
+  "community_url": "https://github.com/Robosturm/Commander_Wars",
+  "download_url": "https://github.com/Robosturm/Commander_Wars/releases",
+  "media": {
+    "image_url": "https://i.redd.it/61mcwen38mw51.png",
+    "image_source_url": "https://github.com/Robosturm/Commander_Wars",
+    "video_url": "https://www.youtube.com/watch?v=JoRKQtoM0xE",
+    "video_title": "Commander Wars gameplay video"
+  },
+  "links": [
+    {
+      "label": "Repository",
+      "url": "https://github.com/Robosturm/Commander_Wars"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/Robosturm/Commander_Wars/releases"
+    }
+  ],
+  "category": "Strategy"
+}

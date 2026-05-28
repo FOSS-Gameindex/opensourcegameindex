@@ -1,0 +1,35 @@
+{
+  "game_id": "mindustry",
+  "title": "Mindustry",
+  "description": "An open-source sandbox tower defense game with LAN and online multiplayer.",
+  "publisher": "Mindustry Project",
+  "genre": "Tower defense",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://mindustrygame.github.io/",
+  "community_url": "https://github.com/Anuken/Mindustry",
+  "download_url": "https://github.com/Anuken/Mindustry/releases",
+  "media": {
+    "image_url": "https://github.com/Anuken/Mindustry/raw/master/core/assets-raw/sprites/ui/logo.png",
+    "image_source_url": "https://github.com/Anuken/Mindustry",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://mindustrygame.github.io/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/Anuken/Mindustry"
+    },
+    {
+      "label": "Releases",
+      "url": "https://github.com/Anuken/Mindustry/releases"
+    }
+  ],
+  "category": "Strategy"
+}

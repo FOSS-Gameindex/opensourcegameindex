@@ -1,0 +1,35 @@
+{
+  "game_id": "return-to-the-roots",
+  "title": "Return to the Roots",
+  "description": "An open-source Settlers II remake with LAN and online multiplayer.",
+  "publisher": "Return to the Roots Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.siedler25.org/",
+  "community_url": "https://github.com/Return-To-The-Roots/s25client",
+  "download_url": "https://github.com/Return-To-The-Roots/s25client",
+  "media": {
+    "image_url": "https://www.siedler25.org/gallery/2015/2015.04.28_03.jpg",
+    "image_source_url": "https://www.siedler25.org/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.siedler25.org/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/Return-To-The-Roots/s25client"
+    },
+    {
+      "label": "Download",
+      "url": "https://github.com/Return-To-The-Roots/s25client"
+    }
+  ],
+  "category": "Strategy"
+}

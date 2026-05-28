@@ -1,0 +1,35 @@
+{
+  "game_id": "xblast",
+  "title": "XBlast",
+  "description": "An open-source Bomberman-style game with online and LAN multiplayer.",
+  "publisher": "XBlast Project",
+  "genre": "Action",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://xblast.sourceforge.net/",
+  "community_url": "https://sourceforge.net/projects/xblast/",
+  "download_url": "https://sourceforge.net/projects/xblast/",
+  "media": {
+    "image_url": "https://xblast.sourceforge.net/pic/ingame/1.gif",
+    "image_source_url": "https://xblast.sourceforge.net/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://xblast.sourceforge.net/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://sourceforge.net/projects/xblast/"
+    },
+    {
+      "label": "Feed",
+      "url": "https://sourceforge.net/p/xblast/news/feed.atom"
+    }
+  ],
+  "category": "Action"
+}

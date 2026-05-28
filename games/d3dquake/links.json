@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://dxquake.sourceforge.net/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://sourceforge.net/projects/direct3dquake/"
+    },
+    {
+      "label": "Source",
+      "url": "https://sourceforge.net/projects/direct3dquake/"
+    }
+  ]
+}

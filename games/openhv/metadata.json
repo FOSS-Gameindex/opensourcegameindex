@@ -1,0 +1,31 @@
+{
+  "game_id": "openhv",
+  "title": "OpenHV",
+  "description": "An open-source strategy game with LAN and online multiplayer support.",
+  "publisher": "OpenHV Project",
+  "genre": "Strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://openhv.net",
+  "community_url": "https://github.com/OpenHV/OpenHV",
+  "download_url": "https://github.com/OpenHV/OpenHV",
+  "media": {
+    "image_url": "https://www.openhv.net/images/osgameclones/wayland.png",
+    "image_source_url": "https://openhv.net",
+    "video_url": "https://www.youtube.com/watch?v=JPlglQtK1gY",
+    "video_title": "OpenHV gameplay video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://openhv.net"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/OpenHV/OpenHV"
+    }
+  ],
+  "category": "Strategy"
+}

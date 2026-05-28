@@ -1,0 +1,39 @@
+{
+  "game_id": "zandronum",
+  "title": "Zandronum",
+  "description": "A multiplayer-focused Doom source port with co-op and competitive modes that work well for LAN sessions.",
+  "publisher": "Zandronum Team",
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://zandronum.com",
+  "community_url": "https://wiki.zandronum.com",
+  "download_url": "https://zandronum.com/download",
+  "media": {
+    "image_url": "https://zandronum.com/res/Header_Nav_Trans.png",
+    "image_source_url": "https://zandronum.com",
+    "video_url": "https://www.youtube.com/watch?v=5mLDugjh0Ro",
+    "video_title": "Zandronum promo video"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://zandronum.com"
+    },
+    {
+      "label": "Wiki",
+      "url": "https://wiki.zandronum.com"
+    },
+    {
+      "label": "Download",
+      "url": "https://zandronum.com/download"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/TorrSamaho/zandronum"
+    }
+  ],
+  "category": "Shooter"
+}
