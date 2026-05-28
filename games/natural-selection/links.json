@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.unknownworlds.com/ns"
+    },
+    {
+      "label": "Community",
+      "url": "https://forums.unknownworlds.com/"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/unknownworlds/NS"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/unknownworlds/NS"
+    }
+  ]
+}

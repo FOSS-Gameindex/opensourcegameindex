@@ -1,18 +1,18 @@
 {
   "game_id": "freecs",
   "title": "FreeCS",
-  "description": "An open-source Counter-Strike 1.5 reimplementation with LAN and online multiplayer.",
-  "publisher": "FreeCS Project",
+  "description": "A clean-room Counter-Strike 1.5 reimplementation in QuakeC with LAN and online multiplayer support.",
+  "publisher": "Marco 'eukara' Hladik",
   "genre": "First-person shooter",
   "lan_supported": true,
   "runtime_support": [
     "native"
   ],
-  "website_url": "https://www.frag-net.com/projects.html",
-  "community_url": "https://github.com/eukara/freecs",
+  "website_url": "https://www.icculus.org/~marco/freecs/",
+  "community_url": "https://forum.freegamedev.net/viewtopic.php?f=22&t=7372",
   "download_url": "https://github.com/eukara/freecs",
   "media": {
-    "image_url": "https://github.com/eukara/freecs/raw/master/img/preview1.jpg",
+    "image_url": "media/cover.png",
     "image_source_url": "https://github.com/eukara/freecs",
     "video_url": "",
     "video_title": ""
@@ -20,10 +20,14 @@
   "links": [
     {
       "label": "Website",
-      "url": "https://www.frag-net.com/projects.html"
+      "url": "https://www.icculus.org/~marco/freecs/"
     },
     {
-      "label": "Repository",
+      "label": "Community",
+      "url": "https://forum.freegamedev.net/viewtopic.php?f=22&t=7372"
+    },
+    {
+      "label": "Downloads",
       "url": "https://github.com/eukara/freecs"
     },
     {

@@ -2,10 +2,14 @@
   "links": [
     {
       "label": "Website",
-      "url": "https://www.frag-net.com/projects.html"
+      "url": "https://www.icculus.org/~marco/freecs/"
     },
     {
-      "label": "Repository",
+      "label": "Community",
+      "url": "https://forum.freegamedev.net/viewtopic.php?f=22&t=7372"
+    },
+    {
+      "label": "Downloads",
       "url": "https://github.com/eukara/freecs"
     },
     {

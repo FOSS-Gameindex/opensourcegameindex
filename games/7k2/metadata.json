@@ -1,0 +1,35 @@
+{
+  "game_id": "7k2",
+  "title": "7k2",
+  "description": "An open-source remake of Seven Kingdoms II with LAN and online multiplayer support.",
+  "publisher": "7k2 project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://github.com/7k2/7k2",
+  "community_url": "https://github.com/7k2/7k2",
+  "download_url": "https://github.com/7k2/7k2",
+  "media": {
+    "image_url": "media/cover.png",
+    "image_source_url": "https://github.com/7k2/7k2",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://github.com/7k2/7k2"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/7k2/7k2"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/7k2/7k2"
+    }
+  ],
+  "category": "Strategy"
+}

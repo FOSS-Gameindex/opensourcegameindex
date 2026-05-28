@@ -1,0 +1,39 @@
+{
+  "game_id": "cccp",
+  "title": "CCCP",
+  "description": "Cortex Command Community Project with split-screen, online, and LAN multiplayer.",
+  "publisher": "Cortex Command Community Project",
+  "genre": "Strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://cortex-command-community.github.io",
+  "community_url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project",
+  "download_url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project/releases",
+  "media": {
+    "image_url": "media/cover.gif",
+    "image_source_url": "https://cortex-command-community.github.io",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://cortex-command-community.github.io"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project/releases"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/cortex-command-community/Cortex-Command-Community-Project"
+    }
+  ],
+  "category": "Strategy"
+}

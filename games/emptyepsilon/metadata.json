@@ -1,0 +1,39 @@
+{
+  "game_id": "emptyepsilon",
+  "title": "EmptyEpsilon",
+  "description": "A bridge-simulator style game with LAN and online multiplayer support.",
+  "publisher": "Daid",
+  "genre": "Simulation",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://daid.github.io/EmptyEpsilon/",
+  "community_url": "https://github.com/daid/EmptyEpsilon",
+  "download_url": "https://github.com/daid/EmptyEpsilon",
+  "media": {
+    "image_url": "media/cover.png",
+    "image_source_url": "https://daid.github.io/EmptyEpsilon/",
+    "video_url": "",
+    "video_title": ""
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://daid.github.io/EmptyEpsilon/"
+    },
+    {
+      "label": "Repository",
+      "url": "https://github.com/daid/EmptyEpsilon"
+    },
+    {
+      "label": "Downloads",
+      "url": "https://github.com/daid/EmptyEpsilon"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/daid/EmptyEpsilon"
+    }
+  ],
+  "category": "Simulation"
+}
