@@ -1,13 +1,12 @@
 {
-  "game_id": "dunelegacy",
-  "title": "Dune Legacy",
+  "game_id": "dunecity",
+  "title": "Dune City / Legacy",
   "description": "An open-source remake of Dune II with LAN and internet multiplayer support.",
   "publisher": "Dune Legacy Team",
   "genre": "Real-time strategy",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "max_players": "8",
+  "runtime_support": ["native"],
   "website_url": "https://dunelegacy.com/",
   "community_url": "https://dunelegacy.com/metaserver/",
   "download_url": "https://dunelegacy.sourceforge.net/website/downloads.html",

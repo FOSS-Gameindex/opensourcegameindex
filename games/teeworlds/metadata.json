@@ -6,17 +6,15 @@
   "genre": "Shooter",
   "lan_supported": true,
   "max_players": "16",
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://www.teeworlds.com/",
   "community_url": "https://github.com/teeworlds/teeworlds",
   "download_url": "https://www.teeworlds.com/",
   "media": {
     "image_url": "https://www.teeworlds.com/images/screens/thumbs/screenshot_winter.png",
     "image_source_url": "https://www.teeworlds.com/",
-    "video_url": "https://www.youtube.com/watch?v=lQv7Liunkcc",
-    "video_title": "Teeworlds trailer map making video"
+    "video_url": "https://www.youtube.com/watch?v=HIF9B-4CWj8",
+    "video_title": "Teeworlds trailer"
   },
   "links": [
     {

@@ -5,14 +5,12 @@
   "publisher": "OpenClonk Project",
   "genre": "Action strategy",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://www.openclonk.org/",
   "community_url": "https://wiki.openclonk.org/",
   "download_url": "https://github.com/openclonk/openclonk",
   "media": {
-    "image_url": "https://www.openclonk.org/img/clonk_buried_eye.png",
+    "image_url": "https://www.openclonk.org/homepage/title.jpg",
     "image_source_url": "https://www.openclonk.org/",
     "video_url": "https://www.youtube.com/watch?v=zydiZSXpn0w",
     "video_title": "OpenClonk trailer"

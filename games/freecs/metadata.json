@@ -5,15 +5,13 @@
   "publisher": "Marco 'eukara' Hladik",
   "genre": "First-person shooter",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://www.icculus.org/~marco/freecs/",
   "community_url": "https://forum.freegamedev.net/viewtopic.php?f=22&t=7372",
   "download_url": "https://github.com/eukara/freecs",
   "media": {
-    "image_url": "media/cover.png",
-    "image_source_url": "https://github.com/eukara/freecs",
+    "image_url": "https://www.icculus.org/~marco/freecs/screens/screen1.png",
+    "image_source_url": "https://www.icculus.org/~marco/freecs/screens.html",
     "video_url": "",
     "video_title": ""
   },
