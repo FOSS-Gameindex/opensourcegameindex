@@ -1,0 +1,35 @@
+{
+  "game_id": "zero-k",
+  "title": "Zero-K",
+  "description": "An open-source RTS with online multiplayer and active development.",
+  "publisher": "Zero-K Project",
+  "genre": "Real-time strategy",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://zero-k.info/",
+  "community_url": "https://github.com/ZeroK-RTS/Zero-K",
+  "download_url": "https://zero-k.info/Download",
+  "media": {
+    "image_url": "https://img.youtube.com/vi/U_Q-0QIcDZE/hqdefault.jpg",
+    "image_source_url": "https://www.youtube.com/watch?v=U_Q-0QIcDZE",
+    "video_url": "https://www.youtube.com/watch?v=U_Q-0QIcDZE",
+    "video_title": "Zero-K gameplay"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://zero-k.info/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/ZeroK-RTS/Zero-K"
+    },
+    {
+      "label": "Download",
+      "url": "https://zero-k.info/Download"
+    }
+  ],
+  "category": "Strategy"
+}

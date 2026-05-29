@@ -1,0 +1,29 @@
+{
+  "game_id": "redeclipse",
+  "title": "Red Eclipse",
+  "description": "An open-source arena shooter with dedicated servers and local multiplayer servers.",
+  "publisher": "Red Eclipse Team",
+  "genre": "Arena shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.redeclipse.net/",
+  "community_url": "https://www.redeclipse.net/docs/Home",
+  "download_url": "https://www.redeclipse.net/download/",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.redeclipse.net/"
+    },
+    {
+      "label": "Documentation",
+      "url": "https://www.redeclipse.net/docs/Home"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/redeclipse/base"
+    }
+  ],
+  "category": "Shooter"
+}

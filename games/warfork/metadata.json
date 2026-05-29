@@ -1,0 +1,29 @@
+{
+  "game_id": "warfork",
+  "title": "Warfork",
+  "description": "An open-source arena shooter with dedicated server support for multiplayer sessions.",
+  "publisher": "Team Forbidden LLC",
+  "genre": "Arena shooter",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://warfork.com/",
+  "community_url": "https://warforkwiki.com/index.php?title=Getting_Started",
+  "download_url": "https://store.steampowered.com/app/671610/Warfork/?l=english",
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://warfork.com/"
+    },
+    {
+      "label": "Wiki",
+      "url": "https://warforkwiki.com/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/TeamForbiddenLLC/warfork-qfusion"
+    }
+  ],
+  "category": "Shooter"
+}
