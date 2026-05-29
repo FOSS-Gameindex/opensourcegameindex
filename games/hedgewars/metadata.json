@@ -6,14 +6,12 @@
   "genre": "Turn-based strategy",
   "lan_supported": true,
   "max_players": "8",
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://www.hedgewars.org/about.html",
   "community_url": "https://hedgewars.org/wiki/Network_Game_Guide",
   "download_url": "https://hedgewars.org/download.html",
   "media": {
-    "image_url": "https://www.hedgewars.org/images/hedgewars-media-1.0.0-1.png",
+    "image_url": "https://www.hedgewars.org/images/screenshots/0_9_23-Rubber_s.png",
     "image_source_url": "https://hedgewars.org/media.html",
     "video_url": "https://www.youtube.com/watch?v=S0RYw52LnEo",
     "video_title": "Hedgewars official trailer"

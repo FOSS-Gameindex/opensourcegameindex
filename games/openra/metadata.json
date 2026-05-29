@@ -5,9 +5,8 @@
   "publisher": "OpenRA Developers",
   "genre": "Real-time strategy",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
+  "max_players": "8",
   "website_url": "https://www.openra.net/",
   "community_url": "https://www.openra.net/about/",
   "download_url": "https://www.openra.net/download/",

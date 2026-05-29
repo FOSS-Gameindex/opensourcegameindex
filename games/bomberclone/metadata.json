@@ -5,15 +5,13 @@
   "publisher": "Bomberclone Project",
   "genre": "Action",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://www.bomberclone.de/",
   "community_url": "https://steffen.gulpe.de/gitea/steffen/bomberclone",
   "download_url": "https://steffen.gulpe.de/gitea/steffen/bomberclone",
   "media": {
-    "image_url": "https://www.bomberclone.de/screenshots/0.11.3_playermenu.jpg",
-    "image_source_url": "https://www.bomberclone.de/",
+    "image_url": "https://www.linux-abos.com/images/bomberclone-grafik.jpg.webp",
+    "image_source_url": "https://www.linux-abos.com/",
     "video_url": "",
     "video_title": ""
   },

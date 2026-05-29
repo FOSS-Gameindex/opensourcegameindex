@@ -5,17 +5,15 @@
   "publisher": "id Software",
   "genre": "First-person shooter",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://www.splashdamage.com/news/wolfenstein-enemy-territory-goes-open-source/",
   "community_url": "https://github.com/id-Software/Enemy-Territory",
   "download_url": "https://github.com/id-Software/Enemy-Territory",
   "media": {
-    "image_url": "https://opengraph.githubassets.com/1a4fd478831aa754d99fae989a0a56790bdc9f8279f7d629a7729474d0d546ca/id-Software/Enemy-Territory",
-    "image_source_url": "https://github.com/id-Software/Enemy-Territory",
-    "video_url": "",
-    "video_title": ""
+    "image_url": "https://www.splashdamage.com/wp-content/uploads/2018/07/Games-Side-Wolf-ET.png",
+    "image_source_url": "https://www.splashdamage.com/games/wolfenstein-enemy-territory/",
+    "video_url": "https://www.youtube.com/watch?v=ycoLu5nmaNg",
+    "video_title": "ET Gameplay"
   },
   "links": [
     {
