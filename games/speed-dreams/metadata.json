@@ -1,0 +1,31 @@
+{
+  "game_id": "speed-dreams",
+  "title": "Speed Dreams",
+  "description": "An open-source motorsport simulation with multiplayer racing.",
+  "publisher": "Speed Dreams Project",
+  "genre": "Racing",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://www.speed-dreams.org/",
+  "community_url": "https://github.com/argos-research/speed-dreams",
+  "download_url": "https://www.speed-dreams.org/",
+  "media": {
+    "image_url": "https://img.youtube.com/vi/fN4_K40EssY/hqdefault.jpg",
+    "image_source_url": "https://www.youtube.com/watch?v=fN4_K40EssY",
+    "video_url": "https://www.youtube.com/watch?v=fN4_K40EssY",
+    "video_title": "Speed Dreams gameplay"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://www.speed-dreams.org/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/argos-research/speed-dreams"
+    }
+  ],
+  "category": "Racing"
+}

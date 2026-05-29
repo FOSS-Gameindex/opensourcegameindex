@@ -1,0 +1,27 @@
+{
+  "game_id": "nullpomino",
+  "title": "NullpoMino",
+  "description": "An open-source action puzzle game with netplay over the internet or LAN.",
+  "publisher": "NullpoMino Project",
+  "genre": "Puzzle",
+  "lan_supported": true,
+  "runtime_support": [
+    "native"
+  ],
+  "website_url": "https://github.com/nullpomino/nullpomino",
+  "community_url": "https://github.com/nullpomino/nullpomino",
+  "download_url": "https://github.com/nullpomino/nullpomino",
+  "media": {
+    "image_url": "https://img.youtube.com/vi/sOW7r4IL4-s/hqdefault.jpg",
+    "image_source_url": "https://www.youtube.com/watch?v=sOW7r4IL4-s",
+    "video_url": "https://www.youtube.com/watch?v=sOW7r4IL4-s",
+    "video_title": "NullpoMino gameplay"
+  },
+  "links": [
+    {
+      "label": "Source",
+      "url": "https://github.com/nullpomino/nullpomino"
+    }
+  ],
+  "category": "Puzzle"
+}
