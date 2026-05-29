@@ -38,6 +38,68 @@ Repo-specific guidance for agents working in this repository.
 - Generated output lands in `site/` and should not be edited manually.
 - If you need to verify a change, run validation before build output checks.
 
+## Adding games
+
+- Search online for actively maintained open-source multiplayer games that are suitable for LAN parties.
+- Exclude any title already present under `games/` and any source or official page already listed in `crawled_urls.json`.
+- Verify current maintenance from official sources before adding an entry.
+- Create `games/<gameid>/README.md` and `games/<gameid>/metadata.json` in the same format as the existing entries.
+- Keep `README.md` short and human-readable, and keep `metadata.json` deterministic with a matching `game_id`, stable URLs, the correct `lan_supported` flag, and one image plus one YouTube video in `media` when available.
+- After researching a game, add every external URL you inspected to `crawled_urls.json` so future searches avoid repeating the same crawl.
+- Run `python3 tools/validate_repo.py` after adding or changing entries.
+
+### Sample metadata
+
+Use existing games under `games/` as the primary reference. This example shows the full structure the repo expects:
+
+```json
+{
+  "game_id": "example-game",
+  "title": "Example Game",
+  "description": "An open-source multiplayer game with LAN support.",
+  "publisher": "Example Project",
+  "release_year": 2024,
+  "genre": "First-person shooter",
+  "lan_supported": true,
+  "max_players": "16",
+  "runtime_support": ["native", "wine"],
+  "website_url": "https://example.org/",
+  "community_url": "https://example.org/community/",
+  "discord_url": "https://discord.gg/example",
+  "download_url": "https://example.org/download/",
+  "page_url": "https://example.org/game/",
+  "media": {
+    "image_url": "https://example.org/media/screenshot.jpg",
+    "image_source_url": "https://example.org/",
+    "video_url": "https://www.youtube.com/watch?v=example",
+    "video_title": "Example Game trailer"
+  },
+  "links": [
+    {
+      "label": "Website",
+      "url": "https://example.org/"
+    },
+    {
+      "label": "Community",
+      "url": "https://example.org/community/"
+    },
+    {
+      "label": "Download",
+      "url": "https://example.org/download/"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/example/example-game"
+    }
+  ],
+  "syncthing_folder": "example-game",
+  "syncthing_seed_device_ids": [
+    "EXAMPLEDEVICEID1234567890"
+  ],
+  "category": "Shooter"
+}
+```
+
 ## Working practice
 
 - Check `git status` before editing; the worktree may already contain unrelated user changes.

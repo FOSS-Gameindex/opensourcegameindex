@@ -6,17 +6,15 @@
   "genre": "Real-time strategy",
   "lan_supported": true,
   "max_players": "10",
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://wz2100.net/",
   "community_url": "https://wz2100.net/support/",
   "download_url": "https://wz2100.net/",
   "media": {
-    "image_url": "media/cover.png",
-    "image_source_url": "https://github.com/Warzone2100/warzone2100",
-    "video_url": "",
-    "video_title": ""
+    "image_url": "https://wz2100.net/img/screenshots/wz2100-CAM_3A50.webp",
+    "image_source_url": "https://wz2100.net/",
+    "video_url": "https://www.youtube.com/watch?v=lM1RMHnAsOw",
+    "video_title": "Warzone 2100"
   },
   "links": [
     {

@@ -1,21 +1,19 @@
 {
   "game_id": "ballistica",
-  "title": "Ballistica",
+  "title": "Ballistica / Bombsquad",
   "description": "An open-source BombSquad engine with LAN, online, local, and co-op multiplayer.",
   "publisher": "Ballistica Project",
   "genre": "Party action",
   "lan_supported": true,
-  "runtime_support": [
-    "native"
-  ],
+  "runtime_support": ["native"],
   "website_url": "https://ballistica.net/",
   "community_url": "https://github.com/efroemling/ballistica",
   "download_url": "https://github.com/efroemling/ballistica/releases",
   "media": {
-    "image_url": "https://ballistica.net/static/ballistica.png",
-    "image_source_url": "https://ballistica.net/",
-    "video_url": "",
-    "video_title": ""
+    "image_url": "https://www.froemling.net/wp-content/uploads/2011/07/cropped-Happy-Thoughts-3.png",
+    "image_source_url": "https://www.froemling.net/",
+    "video_url": "https://www.youtube.com/watch?v=Iob-dlqMev8",
+    "video_title": "Bombsquad Video"
   },
   "links": [
     {
