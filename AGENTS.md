@@ -16,7 +16,6 @@ Repo-specific guidance for agents working in this repository.
   - `metadata.json`
 - Optional files:
   - `links.json`
-  - `payload.json`
   - `media/`
   - `screenshots/`
 
@@ -91,10 +90,6 @@ Use existing games under `games/` as the primary reference. This example shows t
       "label": "Source",
       "url": "https://github.com/example/example-game"
     }
-  ],
-  "syncthing_folder": "example-game",
-  "syncthing_seed_device_ids": [
-    "EXAMPLEDEVICEID1234567890"
   ],
   "category": "Shooter"
 }

@@ -36,5 +36,28 @@
       "url": "https://github.com/supertuxkart/stk-addons"
     }
   ],
-  "category": "Racing"
+  "category": "Racing",
+
+  "version": "",
+  "game_provider_type": "",
+  "runner": "",
+  "installer_tasks": [],
+  "distribution": {
+    "schema_version": 1,
+    "archive": {
+      "file": "",
+      "format": "",
+      "sha256": "",
+      "version_file": ""
+    }
+  },
+  "llng": {
+    "schema_version": 1,
+    "distribution": {
+      "provider": "",
+      "read_token": "",
+      "info_hash": "",
+      "editable_files": []
+    }
+  }
 }

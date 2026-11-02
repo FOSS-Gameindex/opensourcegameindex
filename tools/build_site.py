@@ -116,16 +116,12 @@ def normalize_category(raw: object, genre: str, title: str) -> str:
 
 def build_index(root: Path) -> dict:
     source_config = load_optional_json(root / "source.json")
-    source_seed_device_ids: list[str] = []
-    if isinstance(source_config.get("seed_device_ids"), list):
-        for value in source_config.get("seed_device_ids", []):
-            text = str(value).strip()
-            if text and text not in source_seed_device_ids:
-                source_seed_device_ids.append(text)
+    index_revision = source_config.get("index_revision", 1)
+    if isinstance(index_revision, bool) or not isinstance(index_revision, int) or index_revision < 1:
+        raise ValueError("source.json index_revision must be a positive integer")
     games = []
     for game_dir in sorted(p for p in (root / "games").iterdir() if p.is_dir()):
         metadata = load_json(game_dir / "metadata.json")
-        payload = load_optional_json(game_dir / "payload.json")
         links = metadata.get("links", [])
         lan_supported = metadata.get("lan_supported")
         player_count = parse_player_count(metadata.get("max_players"))
@@ -133,21 +129,13 @@ def build_index(root: Path) -> dict:
             metadata.get("runtime_support", metadata.get("supported_runtimes"))
         )
         category = normalize_category(metadata.get("category"), str(metadata.get("genre", "")), str(metadata.get("title", "")))
-        game_seed_device_ids: list[str] = []
-        if isinstance(payload.get("syncthing_seed_device_ids"), list):
-            for value in payload.get("syncthing_seed_device_ids", []):
-                text = str(value).strip()
-                if text and text not in game_seed_device_ids:
-                    game_seed_device_ids.append(text)
-        if not game_seed_device_ids:
-            game_seed_device_ids = list(source_seed_device_ids)
-        games.append(
-            {
+        game_entry = {
                 "game_id": metadata.get("game_id", game_dir.name),
                 "title": metadata.get("title", ""),
                 "description": metadata.get("description", ""),
                 "publisher": metadata.get("publisher", ""),
                 "release_year": metadata.get("release_year", ""),
+                "version": metadata.get("version", ""),
                 "genre": metadata.get("genre", ""),
                 "category": category,
                 "lan_supported": lan_supported,
@@ -156,10 +144,9 @@ def build_index(root: Path) -> dict:
                 "player_bucket": player_bucket(player_count),
                 "runtime_support": runtime_support,
                 "runtime_bucket": runtime_bucket(runtime_support),
-                "syncthing_folder": str(
-                    payload.get("syncthing_folder", metadata.get("syncthing_folder", ""))
-                ).strip(),
-                "syncthing_seed_device_ids": game_seed_device_ids,
+                "game_provider_type": str(metadata.get("game_provider_type", "")).strip().lower(),
+                "runner": str(metadata.get("runner", "")).strip().lower(),
+                "installer_tasks": metadata.get("installer_tasks", []),
                 "page_url": f"games/{game_dir.name}/index.html",
                 "website_url": metadata.get("website_url", ""),
                 "community_url": metadata.get("community_url", ""),
@@ -168,16 +155,32 @@ def build_index(root: Path) -> dict:
                 "media": metadata.get("media", {}),
                 "links": links if isinstance(links, list) else [],
             }
-        )
+        distribution = metadata.get("distribution")
+        archive = distribution.get("archive") if isinstance(distribution, dict) else None
+        if isinstance(archive, dict) and any(
+            str(archive.get(key, "") or "").strip()
+            for key in ("file", "format", "sha256", "version_file")
+        ):
+            game_entry["distribution"] = metadata["distribution"]
+        llng = metadata.get("llng")
+        capability = llng.get("distribution") if isinstance(llng, dict) else None
+        if isinstance(capability, dict) and (
+            any(
+                str(capability.get(key, "") or "").strip()
+                for key in ("provider", "read_token", "info_hash")
+            )
+            or capability.get("editable_files")
+        ):
+            game_entry["llng"] = metadata["llng"]
+        games.append(game_entry)
     return {
-        "schema_version": 1,
+        "schema_version": 2,
+        "index_revision": index_revision,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "source": {
             "repo_url": "",
             "branch": "",
             "commit_sha": "",
-            "folder_id": str(source_config.get("folder_id", "")).strip(),
-            "seed_device_ids": source_seed_device_ids,
         },
         "games": games,
     }
@@ -385,6 +388,9 @@ def render_page(title: str, body: str, body_class: str = "") -> str:
 def build_site(root: Path, output: Path) -> None:
     index = build_index(root)
     output.mkdir(parents=True, exist_ok=True)
+    schema_root = root / "schema"
+    if schema_root.is_dir():
+        shutil.copytree(schema_root, output / "schema", dirs_exist_ok=True)
     (output / "index.json").write_text(
         json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8"
     )
@@ -408,7 +414,7 @@ def build_site(root: Path, output: Path) -> None:
         runtime_bucket_value = str(entry.get("runtime_bucket", "unknown"))
         game_output = output / "games" / game_id
         game_output.mkdir(parents=True, exist_ok=True)
-        for filename in ("README.md", "metadata.json", "links.json", "payload.json"):
+        for filename in ("README.md", "metadata.json", "links.json"):
             source = game_dir / filename
             if source.is_file():
                 shutil.copy2(source, game_output / filename)
