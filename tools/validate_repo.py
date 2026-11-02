@@ -4,11 +4,14 @@ from __future__ import annotations
 import json
 import re
 import sys
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 from urllib.parse import urlparse
 
 
 GAME_ID_RE = re.compile(r"^[A-Za-z0-9._-]{1,128}$")
+SHA256_RE = re.compile(r"^[a-fA-F0-9]{64}$")
+RUNTIMES = {"", "wine", "proton", "proton-ge", "native", "auto", "windows"}
+ARCHIVE_FORMATS = {"eti", "rar", "tar.gz"}
 
 
 def load_json(path: Path) -> dict:
@@ -21,6 +24,97 @@ def load_json(path: Path) -> dict:
 def valid_url(raw: str) -> bool:
     parsed = urlparse(raw)
     return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+
+
+def valid_relative_path(raw: object) -> bool:
+    value = str(raw or "").strip()
+    posix = PurePosixPath(value)
+    windows = PureWindowsPath(value)
+    return bool(
+        value
+        and "\x00" not in value
+        and "\\" not in value
+        and not posix.is_absolute()
+        and posix.as_posix() != "."
+        and not windows.is_absolute()
+        and not windows.drive
+        and ".." not in posix.parts
+    )
+
+
+def _has_configured_value(value: object) -> bool:
+    if isinstance(value, dict):
+        return any(
+            _has_configured_value(item)
+            for key, item in value.items()
+            if key != "schema_version"
+        )
+    if isinstance(value, list):
+        return bool(value)
+    if isinstance(value, str):
+        return bool(value.strip())
+    return value is not None
+
+
+def validate_llng_distribution(metadata: dict, metadata_path: Path) -> list[str]:
+    errors: list[str] = []
+    provider = str(metadata.get("game_provider_type", "")).strip().lower()
+    if provider not in {"", "ouisync", "resilio", "local"}:
+        errors.append(f"{metadata_path}: unsupported game_provider_type {provider!r}")
+    runner = str(metadata.get("runner", "")).strip().lower()
+    if runner not in RUNTIMES:
+        errors.append(f"{metadata_path}: unsupported runner {runner!r}")
+    tasks = metadata.get("installer_tasks", [])
+    if not isinstance(tasks, list) or any(not isinstance(task, dict) for task in tasks):
+        errors.append(f"{metadata_path}: installer_tasks must be a list of objects")
+
+    archive_distribution = metadata.get("distribution")
+    if archive_distribution is not None and _has_configured_value(archive_distribution):
+        if not isinstance(archive_distribution, dict) or archive_distribution.get("schema_version") != 1:
+            errors.append(f"{metadata_path}: distribution.schema_version must be 1")
+        else:
+            archive = archive_distribution.get("archive", {})
+            if not isinstance(archive, dict):
+                errors.append(f"{metadata_path}: distribution.archive must be an object")
+            else:
+                if not valid_relative_path(archive.get("file")):
+                    errors.append(f"{metadata_path}: distribution.archive.file must be a safe relative path")
+                if str(archive.get("format", "")).strip().lower() not in ARCHIVE_FORMATS:
+                    errors.append(f"{metadata_path}: unsupported distribution.archive.format")
+                if not SHA256_RE.fullmatch(str(archive.get("sha256", "")).strip()):
+                    errors.append(f"{metadata_path}: distribution.archive.sha256 must be a SHA-256 checksum")
+                if not valid_relative_path(archive.get("version_file")):
+                    errors.append(f"{metadata_path}: distribution.archive.version_file must be a safe relative path")
+
+    llng = metadata.get("llng")
+    if provider == "ouisync" or (llng is not None and _has_configured_value(llng)):
+        if provider != "ouisync":
+            errors.append(f"{metadata_path}: LLNG distribution metadata requires game_provider_type 'ouisync'")
+        if not str(metadata.get("version", "")).strip():
+            errors.append(f"{metadata_path}: Ouisync games require a non-empty version")
+        if archive_distribution is None:
+            errors.append(f"{metadata_path}: Ouisync games require distribution.archive metadata")
+        if not isinstance(llng, dict) or llng.get("schema_version") != 1:
+            errors.append(f"{metadata_path}: Ouisync games require llng.schema_version 1")
+            return errors
+        capability = llng.get("distribution")
+        if not isinstance(capability, dict):
+            errors.append(f"{metadata_path}: llng.distribution must be an object")
+            return errors
+        if capability.get("provider") != "ouisync":
+            errors.append(f"{metadata_path}: llng.distribution.provider must be ouisync")
+        token = capability.get("read_token")
+        if not isinstance(token, str) or not token.strip() or token != token.strip() or any(char.isspace() for char in token):
+            errors.append(f"{metadata_path}: llng.distribution.read_token must be a non-empty token without whitespace")
+        info_hash = capability.get("info_hash")
+        if not isinstance(info_hash, str) or not info_hash.strip() or any(char.isspace() for char in info_hash):
+            errors.append(f"{metadata_path}: llng.distribution.info_hash must be non-empty and contain no whitespace")
+        editable = capability.get("editable_files")
+        if not isinstance(editable, list) or len(editable) > 4096:
+            errors.append(f"{metadata_path}: llng.distribution.editable_files must be a list with at most 4096 paths")
+        elif any(not valid_relative_path(path) for path in editable) or len({str(path).casefold() for path in editable}) != len(editable):
+            errors.append(f"{metadata_path}: editable_files must contain unique safe relative paths")
+    return errors
 
 
 def validate_game(game_dir: Path) -> list[str]:
@@ -47,6 +141,7 @@ def validate_game(game_dir: Path) -> list[str]:
     category = str(metadata.get("category", "")).strip()
     if not category:
         errors.append(f"{metadata_path}: missing category")
+    errors.extend(validate_llng_distribution(metadata, metadata_path))
 
     links = metadata.get("links", [])
     if isinstance(links, list):
@@ -75,6 +170,14 @@ def validate_game(game_dir: Path) -> list[str]:
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     errors: list[str] = []
+    try:
+        source_config = load_json(root / "source.json")
+    except (OSError, ValueError) as exc:
+        errors.append(f"{root / 'source.json'}: {exc}")
+        source_config = {}
+    revision = source_config.get("index_revision", 1)
+    if isinstance(revision, bool) or not isinstance(revision, int) or revision < 1:
+        errors.append(f"{root / 'source.json'}: index_revision must be a positive integer")
     games_root = root / "games"
     for game_dir in sorted(p for p in games_root.iterdir() if p.is_dir()):
         errors.extend(validate_game(game_dir))

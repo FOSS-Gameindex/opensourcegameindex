@@ -1,27 +1,110 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Game metadata",
+  "$id": "https://foss-gameindex.github.io/opensourcegameindex/schema/game-metadata.schema.json",
+  "title": "OpenSourceGameIndex game metadata with LLNG distribution fields",
   "type": "object",
   "required": ["game_id", "title"],
   "properties": {
-    "game_id": {
-      "type": "string",
-      "pattern": "^[A-Za-z0-9._-]{1,128}$"
-    },
+    "game_id": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,128}$" },
     "title": {
       "oneOf": [
         { "type": "string" },
         {
           "type": "object",
-          "properties": {
-            "en": { "type": "string" },
-            "de": { "type": "string" }
-          },
+          "properties": { "en": { "type": "string" }, "de": { "type": "string" } },
           "additionalProperties": false
         }
+      ]
+    },
+    "version": { "type": "string" },
+    "game_provider_type": { "enum": ["", "ouisync", "resilio", "local"] },
+    "runner": { "enum": ["", "wine", "proton", "proton-ge", "native", "auto", "windows"] },
+    "installer_tasks": { "type": "array", "items": { "type": "object" } },
+    "distribution": { "$ref": "#/$defs/archiveDistribution" },
+    "llng": { "$ref": "#/$defs/llng" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "game_provider_type": { "const": "ouisync" } }, "required": ["game_provider_type"] },
+      "then": {
+        "required": ["version", "distribution", "llng"],
+        "properties": {
+          "version": { "minLength": 1 },
+          "distribution": {
+            "properties": {
+              "archive": {
+                "properties": {
+                  "file": { "$ref": "#/$defs/safeRelativePath" },
+                  "format": { "enum": ["eti", "rar", "tar.gz"] },
+                  "sha256": { "pattern": "^[A-Fa-f0-9]{64}$" },
+                  "version_file": { "$ref": "#/$defs/safeRelativePath" }
+                }
+              }
+            }
+          },
+          "llng": {
+            "properties": {
+              "distribution": {
+                "properties": {
+                  "provider": { "const": "ouisync" },
+                  "read_token": { "minLength": 1, "pattern": "^[^\\s]+$" },
+                  "info_hash": { "minLength": 1, "pattern": "^[^\\s]+$" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "archiveDistribution": {
+      "type": "object",
+      "required": ["schema_version", "archive"],
+      "properties": {
+        "schema_version": { "const": 1 },
+        "archive": { "$ref": "#/$defs/archive" }
+      },
+      "additionalProperties": true
+    },
+    "archive": {
+      "type": "object",
+      "required": ["file", "format", "sha256", "version_file"],
+      "properties": {
+        "file": { "oneOf": [{ "const": "" }, { "$ref": "#/$defs/safeRelativePath" }] },
+        "format": { "enum": ["", "eti", "rar", "tar.gz"] },
+        "sha256": { "type": "string", "pattern": "^(?:[A-Fa-f0-9]{64})?$" },
+        "version_file": { "oneOf": [{ "const": "" }, { "$ref": "#/$defs/safeRelativePath" }] }
+      },
+      "additionalProperties": true
+    },
+    "llng": {
+      "type": "object",
+      "required": ["schema_version", "distribution"],
+      "properties": {
+        "schema_version": { "const": 1 },
+        "distribution": {
+          "type": "object",
+          "required": ["provider", "read_token", "info_hash", "editable_files"],
+          "properties": {
+            "provider": { "enum": ["", "ouisync"] },
+            "read_token": { "type": "string", "maxLength": 8192, "pattern": "^(?:[^\\s]+)?$" },
+            "info_hash": { "type": "string", "maxLength": 256, "pattern": "^(?:[^\\s]+)?$" },
+            "editable_files": { "type": "array", "maxItems": 4096, "uniqueItems": true, "items": { "$ref": "#/$defs/safeRelativePath" } }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "safeRelativePath": {
+      "type": "string",
+      "minLength": 1,
+      "allOf": [
+        { "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000]+$" },
+        { "not": { "pattern": "\\\\" } }
       ]
     }
   },
   "additionalProperties": true
 }
-

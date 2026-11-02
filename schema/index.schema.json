@@ -1,49 +1,104 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Open source games index",
+  "$id": "https://foss-gameindex.github.io/opensourcegameindex/schema/index.schema.json",
+  "title": "Open source games index with LLNG distribution metadata",
   "type": "object",
-  "required": ["schema_version", "generated_at_utc", "games"],
+  "required": ["schema_version", "index_revision", "generated_at_utc", "games"],
   "properties": {
-    "schema_version": { "type": "integer", "minimum": 1 },
+    "schema_version": { "const": 2 },
+    "index_revision": { "type": "integer", "minimum": 1 },
     "generated_at_utc": { "type": "string" },
-    "source": {
-      "type": "object",
-      "properties": {
-        "repo_url": { "type": "string" },
-        "branch": { "type": "string" },
-        "commit_sha": { "type": "string" },
-        "folder_id": { "type": "string" },
-        "seed_device_ids": {
-          "type": "array",
-          "items": { "type": "string" }
-        }
-      },
-      "additionalProperties": true
-    },
+    "signature": { "$ref": "#/$defs/signature" },
+    "source": { "type": "object", "additionalProperties": true },
     "games": {
       "type": "array",
       "items": {
         "type": "object",
         "required": ["game_id", "title"],
         "properties": {
-          "game_id": { "type": "string" },
+          "game_id": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,128}$" },
           "title": {},
           "description": {},
+          "version": { "type": "string" },
+          "game_provider_type": { "enum": ["", "ouisync", "resilio", "local"] },
+          "runner": { "enum": ["", "wine", "proton", "proton-ge", "native", "auto", "windows"] },
+          "installer_tasks": { "type": "array", "items": { "type": "object" } },
+          "distribution": { "$ref": "#/$defs/archiveDistribution" },
+          "llng": { "$ref": "#/$defs/llng" },
           "page_url": { "type": "string" },
           "download_url": { "type": "string" },
           "website_url": { "type": "string" },
           "community_url": { "type": "string" },
           "discord_url": { "type": "string" },
-          "syncthing_folder": { "type": "string" },
-          "syncthing_seed_device_ids": {
-            "type": "array",
-            "items": { "type": "string" }
-          },
           "media": { "type": "object" },
           "links": { "type": "array" }
         },
+        "allOf": [
+          {
+            "if": { "properties": { "game_provider_type": { "const": "ouisync" } }, "required": ["game_provider_type"] },
+            "then": { "required": ["version", "distribution", "llng"] }
+          }
+        ],
         "additionalProperties": true
       }
+    }
+  },
+  "$defs": {
+    "signature": {
+      "type": "object",
+      "required": ["key_id", "value"],
+      "properties": {
+        "key_id": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,128}$" },
+        "value": { "type": "string", "minLength": 1, "maxLength": 1024, "contentEncoding": "base64" }
+      },
+      "additionalProperties": false
+    },
+    "archiveDistribution": {
+      "type": "object",
+      "required": ["schema_version", "archive"],
+      "properties": {
+        "schema_version": { "const": 1 },
+        "archive": { "$ref": "#/$defs/archive" }
+      },
+      "additionalProperties": true
+    },
+    "archive": {
+      "type": "object",
+      "required": ["file", "format", "sha256", "version_file"],
+      "properties": {
+        "file": { "$ref": "#/$defs/safeRelativePath" },
+        "format": { "enum": ["eti", "rar", "tar.gz"] },
+        "sha256": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+        "version_file": { "$ref": "#/$defs/safeRelativePath" }
+      },
+      "additionalProperties": true
+    },
+    "llng": {
+      "type": "object",
+      "required": ["schema_version", "distribution"],
+      "properties": {
+        "schema_version": { "const": 1 },
+        "distribution": {
+          "type": "object",
+          "required": ["provider", "read_token", "info_hash", "editable_files"],
+          "properties": {
+            "provider": { "const": "ouisync" },
+            "read_token": { "type": "string", "minLength": 1, "maxLength": 8192, "pattern": "^[^\\s]+$" },
+            "info_hash": { "type": "string", "minLength": 1, "maxLength": 256, "pattern": "^[^\\s]+$" },
+            "editable_files": { "type": "array", "maxItems": 4096, "uniqueItems": true, "items": { "$ref": "#/$defs/safeRelativePath" } }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "safeRelativePath": {
+      "type": "string",
+      "minLength": 1,
+      "allOf": [
+        { "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\u0000]+$" },
+        { "not": { "pattern": "\\\\" } }
+      ]
     }
   },
   "additionalProperties": true
