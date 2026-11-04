@@ -1,7 +1,11 @@
 {
   "game_id": "openttd",
   "title": "OpenTTD",
-  "description": "An open-source transport simulation with stable multiplayer for LAN and Internet play.",
+  "description":   {
+    "de": "Eine quelloffene Transportsimulation mit stabilem Mehrspieler über LAN und Internet.",
+    "en": "An open-source transport simulation with stable multiplayer for LAN and Internet play.",
+    "fr": "Un jeu de simulation de transport open source avec multijoueur stable en réseau local et sur Internet."
+  },
   "publisher": "OpenTTD Developers",
   "genre": "Simulation",
   "lan_supported": true,
@@ -59,5 +63,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

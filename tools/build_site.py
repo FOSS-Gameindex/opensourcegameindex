@@ -30,7 +30,11 @@ def localize_text(raw: object, locale: str) -> str:
         preferred = str(raw.get(locale, "")).strip()
         if preferred:
             return preferred
-        fallback = str(raw.get("en", "")).strip() or str(raw.get("de", "")).strip()
+        fallback = (
+            str(raw.get("en", "")).strip()
+            or str(raw.get("de", "")).strip()
+            or str(raw.get("fr", "")).strip()
+        )
         return fallback
     return str(raw or "").strip()
 
@@ -133,6 +137,8 @@ def build_index(root: Path) -> dict:
                 "game_id": metadata.get("game_id", game_dir.name),
                 "title": metadata.get("title", ""),
                 "description": metadata.get("description", ""),
+                "size_gb": metadata.get("size_gb"),
+                "master_required": metadata.get("master_required"),
                 "publisher": metadata.get("publisher", ""),
                 "release_year": metadata.get("release_year", ""),
                 "version": metadata.get("version", ""),
@@ -155,6 +161,12 @@ def build_index(root: Path) -> dict:
                 "media": metadata.get("media", {}),
                 "links": links if isinstance(links, list) else [],
             }
+        game_start = metadata.get("game_start")
+        if isinstance(game_start, dict) and (
+            str(game_start.get("file", "") or "").strip()
+            or game_start.get("args")
+        ):
+            game_entry["game_start"] = game_start
         distribution = metadata.get("distribution")
         archive = distribution.get("archive") if isinstance(distribution, dict) else None
         if isinstance(archive, dict) and any(

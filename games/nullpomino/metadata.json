@@ -1,7 +1,11 @@
 {
   "game_id": "nullpomino",
   "title": "NullpoMino",
-  "description": "An open-source action puzzle game with netplay over the internet or LAN.",
+  "description":   {
+    "de": "Ein quelloffenes Action-Puzzlespiel mit Netplay über Internet oder LAN.",
+    "en": "An open-source action puzzle game with netplay over the internet or LAN.",
+    "fr": "Un jeu d'action-réflexion open source avec jeu en réseau sur Internet ou en LAN."
+  },
   "publisher": "NullpoMino Project",
   "genre": "Puzzle",
   "lan_supported": true,
@@ -46,5 +50,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

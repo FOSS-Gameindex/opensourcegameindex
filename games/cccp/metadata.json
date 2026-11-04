@@ -1,7 +1,11 @@
 {
   "game_id": "cccp",
   "title": "Cortex Command Community Project",
-  "description": "Cortex Command Community Project with split-screen, online, and LAN multiplayer.",
+  "description":   {
+    "de": "Cortex Command Community Project mit Splitscreen-, Online- und LAN-Mehrspieler.",
+    "en": "Cortex Command Community Project with split-screen, online, and LAN multiplayer.",
+    "fr": "Cortex Command Community Project propose du multijoueur en écran partagé, en ligne et en réseau local."
+  },
   "publisher": "Cortex Command Community Project",
   "genre": "Strategy",
   "lan_supported": true,
@@ -56,5 +60,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

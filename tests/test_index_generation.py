@@ -17,6 +17,14 @@ class IndexGenerationTests(unittest.TestCase):
         metadata = {
             "game_id": "demo",
             "title": "Demo",
+            "description": {
+                "de": "Demo-Beschreibung.",
+                "en": "Demo description.",
+                "fr": "Description de démo.",
+            },
+            "size_gb": 2.5,
+            "master_required": False,
+            "game_start": {"file": "game_start.sh", "args": ["--windowed"]},
             "category": "Strategy",
             "game_provider_type": "ouisync",
             "version": "1.2.3",
@@ -62,6 +70,10 @@ class IndexGenerationTests(unittest.TestCase):
             self.assertEqual(index["schema_version"], 2)
             self.assertEqual(index["index_revision"], 7)
             self.assertEqual(entry["version"], "1.2.3")
+            self.assertEqual(entry["description"]["fr"], "Description de démo.")
+            self.assertEqual(entry["size_gb"], 2.5)
+            self.assertFalse(entry["master_required"])
+            self.assertEqual(entry["game_start"]["file"], "game_start.sh")
             self.assertEqual(entry["runner"], "proton")
             self.assertEqual(entry["installer_tasks"][0]["name"], "protontricks")
             self.assertEqual(entry["distribution"]["archive"]["sha256"], "a" * 64)

@@ -1,7 +1,11 @@
 {
   "game_id": "openclonk",
   "title": "OpenClonk",
-  "description": "An open-source action strategy game with LAN and online multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes Action-Strategiespiel mit LAN- und Online-Mehrspieler.",
+    "en": "An open-source action strategy game with LAN and online multiplayer.",
+    "fr": "Un jeu d'action et de stratégie open source avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "OpenClonk Project",
   "genre": "Action strategy",
   "lan_supported": true,
@@ -52,5 +56,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

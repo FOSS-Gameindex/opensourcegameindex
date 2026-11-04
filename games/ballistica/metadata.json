@@ -1,7 +1,11 @@
 {
   "game_id": "ballistica",
   "title": "Ballistica / Bombsquad",
-  "description": "An open-source BombSquad engine with LAN, online, local, and co-op multiplayer.",
+  "description":   {
+    "de": "Eine quelloffene BombSquad-Engine mit LAN-, Online-, lokalem und kooperativem Mehrspieler.",
+    "en": "An open-source BombSquad engine with LAN, online, local, and co-op multiplayer.",
+    "fr": "Un moteur BombSquad open source avec multijoueur en réseau local, en ligne, local et coopératif."
+  },
   "publisher": "Ballistica Project",
   "genre": "Party action",
   "lan_supported": true,
@@ -52,5 +56,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

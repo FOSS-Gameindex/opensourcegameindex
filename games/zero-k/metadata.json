@@ -1,7 +1,11 @@
 {
   "game_id": "zero-k",
   "title": "Zero-K",
-  "description": "An open-source RTS with online multiplayer and active development.",
+  "description":   {
+    "de": "Ein quelloffenes Echtzeit-Strategiespiel mit Online-Mehrspieler und aktiver Entwicklung.",
+    "en": "An open-source RTS with online multiplayer and active development.",
+    "fr": "Un jeu de stratégie en temps réel open source avec multijoueur en ligne et développement actif."
+  },
   "publisher": "Zero-K Project",
   "genre": "Real-time strategy",
   "lan_supported": true,
@@ -54,5 +58,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

@@ -1,7 +1,11 @@
 {
   "game_id": "speed-dreams",
   "title": "Speed Dreams",
-  "description": "An open-source motorsport simulation with multiplayer racing.",
+  "description":   {
+    "de": "Eine quelloffene Motorsport-Simulation mit Mehrspieler-Rennen.",
+    "en": "An open-source motorsport simulation with multiplayer racing.",
+    "fr": "Une simulation de sport automobile open source avec des courses multijoueurs."
+  },
   "publisher": "Speed Dreams Project",
   "genre": "Racing",
   "lan_supported": true,
@@ -50,5 +54,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

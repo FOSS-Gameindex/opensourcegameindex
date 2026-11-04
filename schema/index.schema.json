@@ -18,7 +18,10 @@
         "properties": {
           "game_id": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,128}$" },
           "title": {},
-          "description": {},
+          "description": { "$ref": "#/$defs/localizedText" },
+          "size_gb": { "type": ["number", "null"], "minimum": 0 },
+          "master_required": { "type": ["boolean", "null"] },
+          "game_start": { "$ref": "#/$defs/gameStart" },
           "version": { "type": "string" },
           "game_provider_type": { "enum": ["", "ouisync", "resilio", "local"] },
           "runner": { "enum": ["", "wine", "proton", "proton-ge", "native", "auto", "windows"] },
@@ -44,6 +47,33 @@
     }
   },
   "$defs": {
+    "localizedText": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "properties": {
+            "de": { "type": "string" },
+            "en": { "type": "string" },
+            "fr": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "gameStart": {
+      "type": "object",
+      "properties": {
+        "file": { "$ref": "#/$defs/safeRelativePath" },
+        "args": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
     "signature": {
       "type": "object",
       "required": ["key_id", "value"],

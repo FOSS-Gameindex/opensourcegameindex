@@ -1,7 +1,11 @@
 {
   "game_id": "opensoldat",
   "title": "OpenSoldat",
-  "description": "An open-source Soldat remake with LAN and online multiplayer support.",
+  "description":   {
+    "de": "Ein quelloffenes Soldat-Remake mit LAN- und Online-Mehrspieler.",
+    "en": "An open-source Soldat remake with LAN and online multiplayer support.",
+    "fr": "Un remake open source de Soldat avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "OpenSoldat Project",
   "genre": "Action shooter",
   "lan_supported": true,
@@ -54,5 +58,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

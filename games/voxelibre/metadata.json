@@ -1,7 +1,11 @@
 {
   "game_id": "voxelibre",
   "title": "VoxeLibre",
-  "description": "A voxel-based sandbox game for Luanti with LAN and online multiplayer support.",
+  "description":   {
+    "de": "Ein voxelbasiertes Sandbox-Spiel für Luanti mit LAN- und Online-Mehrspieler.",
+    "en": "A voxel-based sandbox game for Luanti with LAN and online multiplayer support.",
+    "fr": "Un jeu de bac à sable voxel pour Luanti avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "VoxeLibre Project",
   "genre": "Sandbox",
   "lan_supported": true,
@@ -50,5 +54,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

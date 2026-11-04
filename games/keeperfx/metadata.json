@@ -1,7 +1,11 @@
 {
   "game_id": "keeperfx",
   "title": "KeeperFX",
-  "description": "An open-source Dungeon Keeper remake with local, online, and LAN multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes Remake von Dungeon Keeper mit lokalem, Online- und LAN-Mehrspieler.",
+    "en": "An open-source Dungeon Keeper remake with local, online, and LAN multiplayer.",
+    "fr": "Un remake open source de Dungeon Keeper avec multijoueur local, en ligne et en réseau local."
+  },
   "publisher": "KeeperFX Project",
   "genre": "Real-time strategy",
   "lan_supported": true,
@@ -54,5 +58,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

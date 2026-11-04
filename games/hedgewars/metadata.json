@@ -1,7 +1,11 @@
 {
   "game_id": "hedgewars",
   "title": "Hedgewars",
-  "description": "A turn-based artillery strategy game with both local and network multiplayer for LAN play.",
+  "description":   {
+    "de": "Ein rundenbasiertes Artillerie-Strategiespiel mit lokalem Netzwerk-Mehrspieler für LAN-Partien.",
+    "en": "A turn-based artillery strategy game with both local and network multiplayer for LAN play.",
+    "fr": "Un jeu de stratégie d'artillerie au tour par tour avec multijoueur en réseau local, idéal pour les parties en LAN."
+  },
   "publisher": "Hedgewars Project",
   "genre": "Turn-based strategy",
   "lan_supported": true,
@@ -53,5 +57,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }
