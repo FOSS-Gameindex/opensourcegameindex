@@ -1,7 +1,11 @@
 {
   "game_id": "warfork",
   "title": "Warfork",
-  "description": "An open-source arena shooter with dedicated server support for multiplayer sessions.",
+  "description":   {
+    "de": "Ein quelloffener Arena-Shooter mit Unterstützung für dedizierte Mehrspieler-Server.",
+    "en": "An open-source arena shooter with dedicated server support for multiplayer sessions.",
+    "fr": "Un jeu de tir d'arène open source compatible avec les serveurs multijoueurs dédiés."
+  },
   "publisher": "Team Forbidden LLC",
   "genre": "Arena shooter",
   "lan_supported": true,
@@ -48,5 +52,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

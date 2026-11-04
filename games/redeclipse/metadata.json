@@ -1,7 +1,11 @@
 {
   "game_id": "redeclipse",
   "title": "Red Eclipse",
-  "description": "An open-source arena shooter with dedicated servers and local multiplayer servers.",
+  "description":   {
+    "de": "Ein quelloffener Arena-Shooter mit dedizierten Servern und lokalen Mehrspieler-Servern.",
+    "en": "An open-source arena shooter with dedicated servers and local multiplayer servers.",
+    "fr": "Un jeu de tir d'arène open source avec des serveurs dédiés et des serveurs multijoueurs locaux."
+  },
   "publisher": "Red Eclipse Team",
   "genre": "Arena shooter",
   "lan_supported": true,
@@ -48,5 +52,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

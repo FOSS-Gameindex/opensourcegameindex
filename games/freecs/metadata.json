@@ -1,7 +1,11 @@
 {
   "game_id": "freecs",
   "title": "FreeCS",
-  "description": "A clean-room Counter-Strike 1.5 reimplementation in QuakeC with LAN and online multiplayer support.",
+  "description":   {
+    "de": "Eine eigenständige Neuimplementierung von Counter-Strike 1.5 in QuakeC mit LAN- und Online-Mehrspieler.",
+    "en": "A clean-room Counter-Strike 1.5 reimplementation in QuakeC with LAN and online multiplayer support.",
+    "fr": "Une réimplémentation indépendante de Counter-Strike 1.5 en QuakeC avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "Marco 'eukara' Hladik",
   "genre": "First-person shooter",
   "lan_supported": true,
@@ -56,5 +60,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

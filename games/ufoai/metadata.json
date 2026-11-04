@@ -1,7 +1,11 @@
 {
   "game_id": "ufoai",
   "title": "UFO: Alien Invasion",
-  "description": "An open-source tactical strategy game with LAN and online multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes taktisches Strategiespiel mit LAN- und Online-Mehrspieler.",
+    "en": "An open-source tactical strategy game with LAN and online multiplayer.",
+    "fr": "Un jeu de stratégie tactique open source avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "UFO: Alien Invasion Project",
   "genre": "Tactical strategy",
   "lan_supported": true,
@@ -54,5 +58,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

@@ -1,7 +1,11 @@
 {
   "game_id": "zed-online",
   "title": "Zed Online",
-  "description": "An open-source multiplayer strategy game with LAN and online play.",
+  "description":   {
+    "de": "Ein quelloffenes Mehrspieler-Strategiespiel mit LAN- und Online-Partien.",
+    "en": "An open-source multiplayer strategy game with LAN and online play.",
+    "fr": "Un jeu de stratégie multijoueur open source avec des parties en réseau local et en ligne."
+  },
   "publisher": "Zed Online Project",
   "genre": "Strategy",
   "lan_supported": true,
@@ -50,5 +54,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

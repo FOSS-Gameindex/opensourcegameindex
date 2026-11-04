@@ -1,7 +1,11 @@
 {
   "game_id": "supertuxkart",
   "title": "SuperTuxKart",
-  "description": "An open-source kart racer with local network play, split-screen, and online multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes Kart-Rennspiel mit lokalem Netzwerkspiel, Splitscreen und Online-Mehrspieler.",
+    "en": "An open-source kart racer with local network play, split-screen, and online multiplayer.",
+    "fr": "Un jeu de course de karts open source avec jeu en réseau local, écran partagé et multijoueur en ligne."
+  },
   "publisher": "SuperTuxKart Team",
   "genre": "Racing",
   "lan_supported": true,
@@ -59,5 +63,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

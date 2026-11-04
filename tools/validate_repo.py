@@ -67,6 +67,38 @@ def validate_llng_distribution(metadata: dict, metadata_path: Path) -> list[str]
     tasks = metadata.get("installer_tasks", [])
     if not isinstance(tasks, list) or any(not isinstance(task, dict) for task in tasks):
         errors.append(f"{metadata_path}: installer_tasks must be a list of objects")
+    size_gb = metadata.get("size_gb")
+    if size_gb is not None and (
+        isinstance(size_gb, bool)
+        or not isinstance(size_gb, (int, float))
+        or size_gb < 0
+    ):
+        errors.append(f"{metadata_path}: size_gb must be a non-negative number or null")
+    if metadata.get("master_required") is not None and not isinstance(
+        metadata.get("master_required"), bool
+    ):
+        errors.append(f"{metadata_path}: master_required must be a boolean or null")
+    description = metadata.get("description")
+    if isinstance(description, dict):
+        if any(not isinstance(description.get(locale, ""), str) for locale in ("de", "en", "fr")):
+            errors.append(f"{metadata_path}: localized description values must be strings")
+    elif description is not None and not isinstance(description, str):
+        errors.append(f"{metadata_path}: description must be a string or locale object")
+    game_start = metadata.get("game_start")
+    if game_start is not None:
+        if not isinstance(game_start, dict):
+            errors.append(f"{metadata_path}: game_start must be an object")
+        else:
+            start_file = game_start.get("file", "")
+            if start_file and not valid_relative_path(start_file):
+                errors.append(f"{metadata_path}: game_start.file must be a safe relative path")
+            args = game_start.get("args", [])
+            if not (
+                isinstance(args, str)
+                or isinstance(args, list)
+                and all(isinstance(arg, str) for arg in args)
+            ):
+                errors.append(f"{metadata_path}: game_start.args must be a string or list of strings")
 
     archive_distribution = metadata.get("distribution")
     if archive_distribution is not None and _has_configured_value(archive_distribution):

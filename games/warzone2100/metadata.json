@@ -1,7 +1,11 @@
 {
   "game_id": "warzone2100",
   "title": "Warzone 2100",
-  "description": "A free and open-source 3D real-time strategy game with LAN and online multiplayer battles.",
+  "description":   {
+    "de": "Ein kostenloses, quelloffenes 3D-Echtzeit-Strategiespiel mit LAN- und Online-Schlachten.",
+    "en": "A free and open-source 3D real-time strategy game with LAN and online multiplayer battles.",
+    "fr": "Un jeu de stratégie en temps réel 3D, gratuit et open source, avec des batailles en réseau local et en ligne."
+  },
   "publisher": "Warzone 2100 Project",
   "genre": "Real-time strategy",
   "lan_supported": true,
@@ -49,5 +53,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

@@ -1,7 +1,11 @@
 {
   "game_id": "bomberclone",
   "title": "Bomberclone",
-  "description": "An open-source Bomberman clone with LAN and online multiplayer support.",
+  "description":   {
+    "de": "Ein quelloffener Bomberman-Klon mit LAN- und Online-Mehrspieler.",
+    "en": "An open-source Bomberman clone with LAN and online multiplayer support.",
+    "fr": "Un clone open source de Bomberman avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "Bomberclone Project",
   "genre": "Action",
   "lan_supported": true,
@@ -48,5 +52,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

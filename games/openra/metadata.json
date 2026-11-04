@@ -1,7 +1,11 @@
 {
   "game_id": "openra",
   "title": "OpenRA",
-  "description": "A modern open-source RTS engine rebuilding classic games with LAN and online multiplayer.",
+  "description":   {
+    "de": "Eine moderne quelloffene RTS-Engine, die klassische Spiele mit LAN- und Online-Mehrspieler neu aufbaut.",
+    "en": "A modern open-source RTS engine rebuilding classic games with LAN and online multiplayer.",
+    "fr": "Un moteur RTS open source moderne qui recrée des jeux classiques avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "OpenRA Developers",
   "genre": "Real-time strategy",
   "lan_supported": true,
@@ -53,5 +57,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

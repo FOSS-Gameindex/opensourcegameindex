@@ -1,7 +1,11 @@
 {
   "game_id": "dunecity",
   "title": "Dune City / Legacy",
-  "description": "An open-source remake of Dune II with LAN and internet multiplayer support.",
+  "description":   {
+    "de": "Ein quelloffenes Remake von Dune II mit LAN- und Internet-Mehrspieler.",
+    "en": "An open-source remake of Dune II with LAN and internet multiplayer support.",
+    "fr": "Un remake open source de Dune II avec multijoueur en réseau local et sur Internet."
+  },
   "publisher": "Dune Legacy Team",
   "genre": "Real-time strategy",
   "lan_supported": true,
@@ -53,5 +57,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

@@ -1,7 +1,11 @@
 {
   "game_id": "freeciv",
   "title": "Freeciv",
-  "description": "An open-source empire-building strategy game with local network and online multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes Strategiespiel zum Aufbau von Imperien mit lokalem Netzwerk- und Online-Mehrspieler.",
+    "en": "An open-source empire-building strategy game with local network and online multiplayer.",
+    "fr": "Un jeu de stratégie open source de construction d'empire avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "The Freeciv Project",
   "genre": "Strategy",
   "lan_supported": true,
@@ -58,5 +62,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

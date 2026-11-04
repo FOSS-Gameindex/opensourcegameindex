@@ -16,6 +16,24 @@
         }
       ]
     },
+    "description": {
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "required": ["de", "en", "fr"],
+          "properties": {
+            "de": { "type": "string" },
+            "en": { "type": "string" },
+            "fr": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "size_gb": { "type": ["number", "null"], "minimum": 0 },
+    "master_required": { "type": ["boolean", "null"] },
+    "game_start": { "$ref": "#/$defs/gameStart" },
     "version": { "type": "string" },
     "game_provider_type": { "enum": ["", "ouisync", "resilio", "local"] },
     "runner": { "enum": ["", "wine", "proton", "proton-ge", "native", "auto", "windows"] },
@@ -58,6 +76,24 @@
     }
   ],
   "$defs": {
+    "gameStart": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "oneOf": [
+            { "const": "" },
+            { "$ref": "#/$defs/safeRelativePath" }
+          ]
+        },
+        "args": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
     "archiveDistribution": {
       "type": "object",
       "required": ["schema_version", "archive"],

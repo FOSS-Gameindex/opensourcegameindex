@@ -1,7 +1,11 @@
 {
   "game_id": "wolfenstein-et",
   "title": "Wolfenstein: Enemy Territory",
-  "description": "An open-source multiplayer shooter with LAN and online competitive play.",
+  "description":   {
+    "de": "Ein quelloffener Mehrspieler-Shooter mit LAN- und Online-Wettkampfspiel.",
+    "en": "An open-source multiplayer shooter with LAN and online competitive play.",
+    "fr": "Un jeu de tir multijoueur open source avec des parties compétitives en réseau local et en ligne."
+  },
   "publisher": "id Software",
   "genre": "First-person shooter",
   "lan_supported": true,
@@ -52,5 +56,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

@@ -1,7 +1,11 @@
 {
   "game_id": "mindustry",
   "title": "Mindustry",
-  "description": "An open-source sandbox tower defense game with LAN and online multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes Sandbox-Tower-Defense-Spiel mit LAN- und Online-Mehrspieler.",
+    "en": "An open-source sandbox tower defense game with LAN and online multiplayer.",
+    "fr": "Un jeu open source de tower defense et de bac à sable avec multijoueur en réseau local et en ligne."
+  },
   "publisher": "Mindustry Project",
   "genre": "Tower defense",
   "lan_supported": true,
@@ -54,5 +58,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

@@ -1,7 +1,11 @@
 {
   "game_id": "teeworlds",
   "title": "Teeworlds",
-  "description": "A free online multiplayer shooter with dedicated-server play that works well for LAN gatherings.",
+  "description":   {
+    "de": "Ein kostenloser Online-Mehrspieler-Shooter mit dedizierten Servern, der sich gut für LAN-Partys eignet.",
+    "en": "A free online multiplayer shooter with dedicated-server play that works well for LAN gatherings.",
+    "fr": "Un jeu de tir multijoueur en ligne gratuit avec serveurs dédiés, qui convient aussi très bien aux LAN parties."
+  },
   "publisher": "Teeworlds Team",
   "genre": "Shooter",
   "lan_supported": true,
@@ -49,5 +53,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

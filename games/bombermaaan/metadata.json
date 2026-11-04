@@ -1,7 +1,11 @@
 {
   "game_id": "bombermaaan",
   "title": "Bombermaaan",
-  "description": "An open-source Bomberman-style game with local competitive multiplayer.",
+  "description":   {
+    "de": "Ein quelloffenes Spiel im Bomberman-Stil mit lokalem Wettkampf-Mehrspieler.",
+    "en": "An open-source Bomberman-style game with local competitive multiplayer.",
+    "fr": "Un jeu open source de type Bomberman avec multijoueur compétitif local."
+  },
   "publisher": "Bombermaaan Project",
   "genre": "Action",
   "lan_supported": true,
@@ -54,5 +58,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }

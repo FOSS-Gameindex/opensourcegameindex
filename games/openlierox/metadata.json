@@ -1,7 +1,11 @@
 {
   "game_id": "openlierox",
   "title": "OpenLieroX",
-  "description": "An open-source Liero clone with online, competitive, and LAN multiplayer.",
+  "description":   {
+    "de": "Ein quelloffener Liero-Klon mit Online-, Wettkampf- und LAN-Mehrspieler.",
+    "en": "An open-source Liero clone with online, competitive, and LAN multiplayer.",
+    "fr": "Un clone open source de Liero avec multijoueur en ligne, compétitif et en réseau local."
+  },
   "publisher": "OpenLieroX Project",
   "genre": "Action",
   "lan_supported": true,
@@ -50,5 +54,8 @@
       "info_hash": "",
       "editable_files": []
     }
-  }
+  },
+  "size_gb": null,
+  "master_required": null,
+  "game_start": {"file": "","args": []}
 }
