@@ -1,7 +1,7 @@
 {
   "game_id": "0ad",
   "title": "0 A.D.",
-  "description":   {
+  "description": {
     "de": "Ein kostenloses, quelloffenes historisches Echtzeit-Strategiespiel mit LAN- und Online-Mehrspieler.",
     "en": "A free, open-source historical real-time strategy game with LAN and online multiplayer.",
     "fr": "Un jeu de stratégie historique en temps réel, libre et open source, avec multijoueur en réseau local et en ligne."
@@ -36,30 +36,35 @@
     }
   ],
   "category": "Strategy",
-
-  "version": "",
-  "game_provider_type": "",
-  "runner": "",
+  "version": "20261108",
+  "game_provider_type": "ouisync",
+  "runner": "native",
   "installer_tasks": [],
   "distribution": {
     "schema_version": 1,
     "archive": {
-      "file": "",
-      "format": "",
-      "sha256": "",
-      "version_file": ""
+      "file": "0ad.tar.gz",
+      "format": "tar.gz",
+      "sha256": "8947d842b55b941c84c09d3fc52c9676b2b445228e0dba800d622f1e7389de56",
+      "version_file": "version.ini"
     }
   },
   "llng": {
     "schema_version": 1,
     "distribution": {
-      "provider": "",
-      "read_token": "",
-      "info_hash": "",
-      "editable_files": []
+      "provider": "ouisync",
+      "read_token": "https://ouisync.net/r#AwEgXJngwnXvaAbUt5M3CLpV4UVRLy2mE-DeHR51G2y4cEkg1uAgCv25zKetXvKGdsH1_-LJmVFCtBPZcLID3uK-3VQ?name=0ad",
+      "info_hash": "7687ee63ecbddaeb2b9194442bc956cb4bc16afb",
+      "editable_files": [
+        "game_start.cmd",
+        "game_start.sh"
+      ]
     }
   },
-  "size_gb": null,
-  "master_required": null,
-  "game_start": {"file": "","args": []}
+  "size_gb": 8.1,
+  "master_required": false,
+  "game_start": {
+    "file": "",
+    "args": []
+  }
 }
